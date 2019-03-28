@@ -1,0 +1,39 @@
+{
+  "name": "samaro",
+  "version": "0.1.0",
+  "description": "\u0016samaro - driver and passenger application (travel)\u001b[H\u001b[3~",
+  "main": "index.html",
+  "scripts": {
+    "build-css": "node-sass --include-path scss source/assets/sass/main.scss source/assets/main.css --output-style nested --source-map true",
+    "build-minify": "node-sass --include-path scss source/assets/sass/main.scss source/assets/main.min.css --output-style compressed --source-map true",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sepehrakbarzadeh/samaro.git"
+  },
+  "keywords": [
+    "website",
+    "application",
+    "travel",
+    "passenger",
+    "driver",
+    "car",
+    "pooling",
+    "dispatch"
+  ],
+  "author": "sepehr akbarzadeh",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/sepehrakbarzadeh/samaro/issues"
+  },
+  "homepage": "samaro.ir",
+  "dependencies": {
+    "animate.css": "^3.7.0",
+    "bootstrap": "^3.3.7",
+    "hover.css": "^2.3.2",
+    "jquery": "^3.3.1",
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.9"
+  }
+}
