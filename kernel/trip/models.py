@@ -37,7 +37,6 @@ class Region(models.Model):
         verbose_name = _('Region')
         verbose_name_plural = _('Regions')
 
-
     def __str__(self):
         return "{} -> {}".format(self.city.name, self.name)
 
@@ -100,9 +99,9 @@ class Seat(models.Model):
     trip = models.ForeignKey('Trip', on_delete = models.CASCADE, related_name='seat', null = True, verbose_name=_('trip'))
 
     def save(self, *args, **kwargs):
-        
+
         # trip = Trip.objects.aggregate(count = Count('trip'))
-        
+
         super(Seat, self).save(*args, **kwargs)
 
     class Meta:

@@ -88,5 +88,5 @@ class TripAdmin(admin.ModelAdmin):
         e_date = date_point = jd(obj.created).strftime('%Q')
         return e_date
     
-    def get_readonly_fields(self, request, obj = None):
-        return [f.name for f in self.model._meta.fields] 
+    # def get_readonly_fields(self, request, obj = None):
+    #     return [f.name for f in self.model._meta.fields] 
