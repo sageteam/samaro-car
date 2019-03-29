@@ -41,6 +41,6 @@ class TripSerializer(ModelSerializer):
     seats = SeatSerializer(required = True)
     class Meta:
         model = Trip
-        fields = ('origin', 'origin_region', 'destination', 'destination_region', 'driver', 'seats', 'status', 'gender', 'active', 'start_time', 'end_time')
+        fields = ('origin', 'origin_region', 'destination', 'destination_region', 'driver', 'seats', 'status', 'gender', 'active', 'start_time')
         
 
