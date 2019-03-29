@@ -91,7 +91,7 @@ WSGI_APPLICATION = 'kernel.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.path.join(BASE_DIR, 'postgres'),
         'USER': 'samaro',
         'PASSWORD': '1234',
