@@ -25,7 +25,7 @@ SECRET_KEY = '(l2_%42x6giw&0e-jizm--nc61-@7!bx(j8ir1=+ufu&x562_z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['87.236.211.238', 'samaro.ir', 'www.samaro.ir']
 
 
 # Application definition
@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'users',
     'ticket',
     'trip',
-    # 'api_v1',
+    'api_v1',
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
@@ -92,7 +92,11 @@ WSGI_APPLICATION = 'kernel.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'postgres'),
+        'USER': 'samaro',
+        'PASSWORD': '1234',
+        'HOST': 'localhost',
+        'PORT': 5432
     }
 }
 

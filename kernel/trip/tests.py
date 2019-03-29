@@ -24,7 +24,7 @@ class TripModel(TestCase):
             origin = self.city1, 
             destination = self.city2, 
             origin_region = self.region1,
-            destiantion_region = self.region2,
+            destination_region = self.region2,
             driver = self.user,
             status = 1
             )
@@ -47,7 +47,7 @@ class TripModel(TestCase):
                 origin = self.city1, 
                 destination = self.city2, 
                 origin_region = self.region1,
-                destiantion_region = self.region2,
+                destination_region = self.region2,
                 driver = self.user,
                 status = 1
             )
@@ -60,7 +60,7 @@ class TripModel(TestCase):
                 origin = self.city1, 
                 destination = self.city2, 
                 origin_region = self.false_region,
-                destiantion_region = self.false_region,
+                destination_region = self.false_region,
                 driver = self.user,
                 status = 1
             )

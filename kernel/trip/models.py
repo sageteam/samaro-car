@@ -2,6 +2,7 @@ import secrets
 
 from accounts.models import User
 from datetime import timedelta
+from .validations import validate_region_subset_of_city
 
 from trip.querysets import TripModelManager
 
@@ -143,11 +144,10 @@ class Trip(models.Model):
     )
 
     start_time = models.DateTimeField(verbose_name=_('start time'))
-    end_time = models.TimeField(verbose_name=_('end time'))
     origin = models.ForeignKey(City, on_delete = models.CASCADE, related_name = 'trip_origin', verbose_name=_('origin'))
     destination = models.ForeignKey(City, on_delete = models.CASCADE, related_name = 'trip_dest', verbose_name=_('destination'))
     origin_region = models.ForeignKey(Region, on_delete = models.CASCADE, related_name = 'trip_reg_origin', verbose_name=_('origin region'))
-    destiantion_region = models.ForeignKey(Region, on_delete = models.CASCADE, related_name='trip_reg_dest', verbose_name=_('destination region'))
+    destination_region = models.ForeignKey(Region, on_delete = models.CASCADE, related_name='trip_reg_dest', verbose_name=_('destination region'))
     driver = models.ForeignKey(User, on_delete=models.SET_NULL, null = True, related_name='trip', verbose_name=_('driver'))
     status = models.PositiveSmallIntegerField(choices = ENDINGS, verbose_name=_('status'))
     gender = models.CharField(max_length = 1, choices = GENDERS, default = 'd', verbose_name=_('gender'))

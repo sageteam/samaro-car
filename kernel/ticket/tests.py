@@ -14,7 +14,7 @@ class TicketEnvelopeModel(TestCase):
         self.region2 = Region.objects.create(name = 'TehranPars', city = self.city2)
         self.passenger = User.objects.create(email = 'passenger@gmail.com', password = 'sepehr1234')
         self.driver = User.objects.create(email = 'driver@gmail.com', password = 'sepehr1234')
-        self.trip = Trip.objects.create(start_time = tz.now(), end_time = tz.now(), origin = self.city1, destination = self.city2, origin_region = self.region1, destiantion_region = self.region2, driver = self.driver, status = 1 )
+        self.trip = Trip.objects.create(start_time = tz.now(), end_time = tz.now(), origin = self.city1, destination = self.city2, origin_region = self.region1, destination_region = self.region2, driver = self.driver, status = 1 )
         self.ticket = TicketEnvelope.objects.create(
             subject = 'this trip',
             trip = self.trip,
