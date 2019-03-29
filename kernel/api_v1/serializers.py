@@ -38,10 +38,10 @@ class TripSerializer(ModelSerializer):
     destination = CitySerializer(required = True)
     origin_region = RegionSerializer(required = True)
     destination_region = RegionSerializer(required = True)
-    seats = SeatSerializer(required = True, many = True)
+    seat = SeatSerializer(required = True, many = True)
     
     class Meta:
         model = Trip
-        fields = ('origin', 'origin_region', 'destination', 'destination_region', 'driver', 'seats', 'status', 'gender', 'active', 'start_time')
+        fields = ('origin', 'origin_region', 'destination', 'destination_region', 'driver', 'seat', 'status', 'gender', 'active', 'start_time')
         
 
