@@ -27,6 +27,7 @@ class GeneralProfile(models.Model):
     )
 
     user = models.OneToOneField(User, on_delete = models.CASCADE, related_name='profile', verbose_name = _('User'))
+
     # required
     gender = models.CharField(max_length = 1, choices = GENDERS, default='m', null = True, blank = True, verbose_name = _('gender'))
     birth_date = models.DateField(null = True, blank = True, verbose_name = _('birth_date'))
@@ -44,26 +45,27 @@ class GeneralProfile(models.Model):
     about = models.TextField(null = True, blank = True, verbose_name = _('about'))
 
 class Driver(models.Model):
-    profile = models.OneToOneField('GeneralProfile', on_delete = models.CASCADE, related_name='driver', verbose_name = _('profile'))
     job = models.CharField(max_length = 128, null = True, blank = True, verbose_name = _('job'))
     job_place = models.CharField(max_length = 128, null = True, blank = True, verbose_name = _('job_place'))
     emergency_number = models.CharField(max_length = 128, null = True, blank = True, verbose_name = _('emergency_number'))
+    profile = models.OneToOneField(GeneralProfile, on_delete = models.CASCADE, related_name='driver', verbose_name = _('profile'))
 
     def __str__(self):
         return f'({self.profile.user.id}) {self.profile.user.first_name} {self.profile.user.last_name}'
 
 class Passenger(models.Model):
-    profile = models.OneToOneField(GeneralProfile, on_delete = models.CASCADE, related_name='passenger', verbose_name = _('profile'))
     job = models.CharField(max_length = 128, null = True, blank = True, verbose_name = _('job'))
     emergency_number = models.CharField(max_length = 128, null = True, blank = True, verbose_name = _('emergency_number'))
+    profile = models.OneToOneField(GeneralProfile, on_delete = models.CASCADE, related_name='passenger', verbose_name = _('profile'))
 
     def __str__(self):
         return f'({self.profile.user.id}) {self.profile.user.first_name} {self.profile.user.last_name}'
     
 class Transmit(models.Model):
-    profile = models.OneToOneField(GeneralProfile, on_delete = models.CASCADE, related_name='transmit', verbose_name = _('profile'))
     job = models.CharField(max_length = 128, null = True, blank = True, verbose_name = _('job'))
     emergency_number = models.CharField(max_length = 128, null = True, blank = True, verbose_name = _('emergency_number'))
+    profile = models.OneToOneField(GeneralProfile, on_delete = models.CASCADE, related_name='transmit', verbose_name = _('profile'))
     
     def __str__(self):
         return f'({self.profile.user.id}) {self.profile.user.first_name} {self.profile.user.last_name}'
+

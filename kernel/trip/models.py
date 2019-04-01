@@ -29,7 +29,7 @@ class Region(models.Model):
     name = models.CharField(max_length = 64)
     is_traditional = models.BooleanField(default = False)
 
-    city = models.ForeignKey('City', on_delete = models.CASCADE, related_name='region')
+    city = models.ForeignKey('City', on_delete = models.CASCADE, related_name='regions')
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
@@ -38,7 +38,7 @@ class Region(models.Model):
         verbose_name_plural = _('Regions')
 
     def __str__(self):
-        return "{} -> {}".format(self.city.name, self.name)
+        return smart_text("{} -> {}".format(self.city.name, self.name))
 
 class Distance(models.Model):
     city1 = models.ForeignKey('City', on_delete=models.CASCADE, related_name='city1')
