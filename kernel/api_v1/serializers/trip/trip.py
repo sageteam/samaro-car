@@ -1,0 +1,33 @@
+from rest_framework.serializers import ModelSerializer
+from trip.models import Seat
+from trip.models import Trip
+
+from api_v1.serializers.trip.city import CitySerializer
+from api_v1.serializers.trip.region import RegionSerializer
+from api_v1.serializers.users import UserSerializer
+
+class SeatSerializer(ModelSerializer):
+
+    class Meta:
+        model = Seat
+        fields = ('position', 'state', 'init_price', 'paid_price', 'type_price', 'discount', 'user', 'trip')
+
+class TripSerializer(ModelSerializer):
+    origin = CitySerializer(required = True)
+    destination = CitySerializer(required = True)
+    origin_region = RegionSerializer(required = True)
+    destination_region = RegionSerializer(required = True)
+    seat = SeatSerializer(required = True, many = True)
+    
+    driver = UserSerializer(required = True)
+
+    class Meta:
+        model = Trip
+        fields = ('origin', 'origin_region', 'destination', 'destination_region', 'driver', 'seat', 'status', 'gender', 'active', 'start_time')
+
+class TripMainSerializer(ModelSerializer):
+
+    class Meta:
+        model = Trip
+        fields = ('origin', 'origin_region', 'destination', 'destination_region', 'driver', 'seat', 'status', 'gender', 'active', 'start_time')
+

@@ -110,7 +110,7 @@ class Seat(models.Model):
         unique_together = ('position', 'trip')
 
     def __str__(self):
-        return smart_text(f"{self.machine} - {self.position}")
+        return smart_text(f"{self.position}")
 
 class Discount(models.Model):
     sku = models.CharField(max_length = 128)

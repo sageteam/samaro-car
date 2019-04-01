@@ -16,6 +16,10 @@ urlpatterns = [
     re_path(r'^distance/detail/$', views.APIDetailDistance.as_view(), name = 'api_distance_detail'),
     re_path(r'^distance/(?P<url>[\w-]+)/$', views.APIRetrieveUpdateDistance.as_view(), name = 'api_distance'),
 
+    re_path(r'^trip/$', views.APIListCreateTrip.as_view(), name = 'api_trips'),
+    re_path(r'^trip/(?P<pk>\d+)/$', views.APIListCreateTrip.as_view(), name = 'api_trip'),
+    re_path(r'^trip/detail/(?P<pk>\d+)/$', views.APIListTrip.as_view(), name = 'api_trip_detail'),
+
     re_path(r'^user/$', views.APIListCreateUser.as_view(), name = 'api_user'),
     re_path(r'^user/detail/(?P<email>\w+@\w+.\w+)/$', views.APIDetailUser.as_view(), name = 'api_user_detail'),
     re_path(r'^user/profile/(?P<user>\d+)/$', views.APIRetrieveUpdateUserProfile.as_view(), name = 'api_user_profile'),

@@ -16,6 +16,10 @@ from trip.models import Distance
 from api_v1.serializers.trip.distance import DistanceSerializer
 from api_v1.serializers.trip.distance import DistanceMainSerializer
 
+from trip.models import Trip
+from api_v1.serializers.trip.trip import TripSerializer
+from api_v1.serializers.trip.trip import TripMainSerializer
+
 from accounts.models import User
 from users.models import GeneralProfile
 from users.models import Driver
@@ -73,7 +77,11 @@ class APIRetrieveUpdateDistance(generics.RetrieveUpdateAPIView):
     lookup_field = 'url'
     lookup_url_kwarg = 'url'
 
+
+######################
 ######## USER ########
+######################
+
 class APIListCreateUser(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserMainSerializer
@@ -84,7 +92,7 @@ class APIDetailUser(generics.RetrieveAPIView):
     serializer_class = UserSerializer
     lookup_field = 'email'
     lookup_url_kwarg = 'email'
-    
+
 class APIRetrieveUpdateUser(generics.RetrieveUpdateAPIView):
     queryset = User.objects.all()
     serializer_class = UserMainSerializer
@@ -117,3 +125,15 @@ class APIRetrieveUpdateUserProfileTransmit(generics.RetrieveUpdateAPIView):
     serializer_class = UserProfileTransmitMainSerializer
     lookup_field = 'profile'
     lookup_url_kwarg = 'profile'
+
+######################
+######## Trip ########
+######################
+
+class APIListCreateTrip(generics.ListCreateAPIView):
+    queryset = Trip.objects.all()
+    serializer_class = TripMainSerializer
+
+class APIListTrip(generics.RetrieveAPIView):
+    queryset = Trip.objects.all()
+    serializer_class = TripSerializer
