@@ -49,7 +49,7 @@ def create_trip_pre_save(sender, instance, *args, **kwargs):
 @receiver(post_save, sender=Seat)
 def edit_seat_post_save(sender, instance, created, *args, **kwargs):
     if not created:
-        driver = instance.seat.trip.driver
-        passenger = instance.seat.user
+        driver = instance.trip.driver
+        passenger = instance.user
 
 

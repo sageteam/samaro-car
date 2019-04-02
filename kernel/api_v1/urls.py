@@ -17,8 +17,11 @@ urlpatterns = [
     re_path(r'^distance/(?P<url>[\w-]+)/$', views.APIRetrieveUpdateDistance.as_view(), name = 'api_distance'),
 
     re_path(r'^trip/$', views.APIListCreateTrip.as_view(), name = 'api_trips'),
-    re_path(r'^trip/(?P<pk>\d+)/$', views.APIListCreateTrip.as_view(), name = 'api_trip'),
-    re_path(r'^trip/detail/(?P<pk>\d+)/$', views.APIListTrip.as_view(), name = 'api_trip_detail'),
+    re_path(r'^trip/(?P<pk>\d+)/$', views.APIRetrieveUpdateTrip.as_view(), name = 'api_trip'),
+    re_path(r'^trip/detail/(?P<pk>\d+)/$', views.APIRetrieveTrip.as_view(), name = 'api_trip_detail'),
+    
+    re_path(r'^seats/$', views.APIListTripSeat.as_view(), name = 'api_trip_seats'),
+    re_path(r'^seat/(?P<id>\d+)/$', views.APIRetrieveUpdateSeats.as_view(), name = 'trip_seat'),
 
     re_path(r'^user/$', views.APIListCreateUser.as_view(), name = 'api_user'),
     re_path(r'^user/detail/(?P<email>\w+@\w+.\w+)/$', views.APIDetailUser.as_view(), name = 'api_user_detail'),

@@ -2,6 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import generics
 from rest_framework import viewsets
+from django_filters import rest_framework as filters
 
 
 from trip.models import City
@@ -17,8 +18,10 @@ from api_v1.serializers.trip.distance import DistanceSerializer
 from api_v1.serializers.trip.distance import DistanceMainSerializer
 
 from trip.models import Trip
+from trip.models import Seat
 from api_v1.serializers.trip.trip import TripSerializer
 from api_v1.serializers.trip.trip import TripMainSerializer
+from api_v1.serializers.trip.trip import SeatSerializer
 
 from accounts.models import User
 from users.models import GeneralProfile
@@ -134,6 +137,23 @@ class APIListCreateTrip(generics.ListCreateAPIView):
     queryset = Trip.objects.all()
     serializer_class = TripMainSerializer
 
-class APIListTrip(generics.RetrieveAPIView):
+class APIRetrieveTrip(generics.RetrieveAPIView):
     queryset = Trip.objects.all()
     serializer_class = TripSerializer
+
+class APIRetrieveUpdateTrip(generics.RetrieveUpdateAPIView):
+    queryset = Trip.objects.all()
+    serializer_class = TripMainSerializer
+
+class APIListTripSeat(generics.ListAPIView):
+    queryset = Seat.objects.all()
+    serializer_class = SeatSerializer
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_fields = ('trip', )
+
+class APIRetrieveUpdateSeats(generics.RetrieveUpdateAPIView):
+    queryset = Seat.objects.all()
+    serializer_class = SeatSerializer
+    lookup_field = 'id'
+    lookup_url_kwarg = 'id'
+

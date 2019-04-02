@@ -1,4 +1,5 @@
 from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import HyperlinkedRelatedField
 from trip.models import Seat
 from trip.models import Trip
 
@@ -11,6 +12,7 @@ class SeatSerializer(ModelSerializer):
     class Meta:
         model = Seat
         fields = ('position', 'state', 'init_price', 'paid_price', 'type_price', 'discount', 'user', 'trip')
+        read_only_fields = ('trip', 'position')
 
 class TripSerializer(ModelSerializer):
     origin = CitySerializer(required = True)
