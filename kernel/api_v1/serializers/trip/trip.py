@@ -26,10 +26,11 @@ class TripSerializer(ModelSerializer):
     class Meta:
         model = Trip
         fields = ('origin', 'origin_region', 'destination', 'destination_region', 'driver', 'seat', 'status', 'gender', 'active', 'start_time')
+        read_only_fields = ('seat', )
 
 class TripMainSerializer(ModelSerializer):
-
+    
     class Meta:
         model = Trip
-        fields = ('origin', 'origin_region', 'destination', 'destination_region', 'driver', 'seat', 'status', 'gender', 'active', 'start_time')
+        fields = ('origin', 'origin_region', 'destination', 'destination_region', 'driver', 'status', 'gender', 'active', 'start_time')
 
