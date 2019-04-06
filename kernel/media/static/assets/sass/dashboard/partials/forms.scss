@@ -1,0 +1,254 @@
+.form-global {
+    font-family: $font_std_light;
+    font-weight: 300;
+    position: relative;
+    padding: 50px;
+
+    label,
+    input,
+    textarea {
+        font-family: $font_std_light;
+        font-weight: 300;
+
+    }
+
+}
+
+textarea {
+    resize: vertical;
+}
+
+input.txtb,
+textarea.txtb {
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 16px;
+    width: 100%;
+    resize: none;
+
+    &::placeholder {
+        font-size: $font-size-small;
+    }
+
+    &:active,
+    &:focus {
+        outline: $primary;
+    }
+}
+
+.table-primary tbody tr td {
+    font-size: 20px;
+}
+
+.radio-container {
+
+    label {
+        font-family: $font_std_ulight;
+        font-weight: 300 !important;
+
+        :first-child {
+            margin-right: 22px;
+        }
+
+        img {
+            height: 24px;
+            position: relative;
+            bottom: 5px;
+        }
+    }
+
+    [type='radio']:checked,
+    [type='radio']:not(:checked) {
+        position: absolute;
+        right: -9999px;
+    }
+
+    [type='radio']:checked+label,
+    [type='radio']:not(:checked)+label {
+        position: relative;
+        cursor: pointer;
+        display: inline-block;
+        width: 100%;
+        color: $black;
+    }
+
+    [type="radio"]:checked+label:before,
+    [type="radio"]:not(:checked)+label:before {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #ddd;
+        border-radius: 100%;
+        background: #fff;
+    }
+
+    [type="radio"]:checked+label:after,
+    [type="radio"]:not(:checked)+label:after {
+        content: '';
+        width: 12px;
+        height: 12px;
+        background: $warning;
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        border-radius: 100%;
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+    }
+
+    [type="radio"]:not(:checked)+label:after {
+        opacity: 0;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+
+    [type="radio"]:checked+label:after {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+
+
+.choosebox-wrapper {
+    position: relative;
+
+    .chooseBox {
+        background-image: url('img/icons/form/flesh-01.png');
+        background-position: 10px center;
+        background-repeat: no-repeat;
+        font-size: 16px;
+        padding: 5px;
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        transition-duration: .4s;
+
+        &:focus {
+            outline: none;
+            border: 1px solid $primary;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+
+    .show {
+        display: block;
+    }
+
+    .choosebox-content {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        min-width: 100%;
+        z-index: 10000000000000000000;
+
+        a {
+            color: black;
+            border-bottom: 1px solid $warning;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            &:hover {
+                background-color: #f1f1f1
+            }
+        }
+    }
+}
+
+
+.choose-group {
+    font-family: $font_light;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+
+    span {
+        position: relative;
+
+        img.choose-arrow {
+            width: 10px;
+            position: absolute;
+            left: 5px;
+            top: 9px;
+            z-index: 100000000000000;
+        }
+    }
+
+    .block {
+        width: 100%;
+        padding: 0;
+    }
+
+    .choose {
+        border-radius: 5px;
+        outline: none;
+        position: relative;
+        width: 100%;
+
+        &:active,
+        &:focus {
+            outline: $primary;
+        }
+    }
+}
+
+
+
+.up-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: block;
+
+    .upload-btn {
+        width: 70px;
+        height: 40px;
+        background-color: transparent;
+        border: 1.2px solid $light;
+        outline: none;
+        background-image: url('img/icons/form/camera.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        cursor: pointer;
+    }
+
+    input[type=file] {
+        font-size: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        cursor: pointer;
+    }
+}
+
+.form-row {
+    // padding: 0 20px;
+    font-size: $font-size-normal;
+    font-family: $font_std_light;
+
+    button[type=submit] {
+        position: relative;
+        bottom: 34px;
+    }
+}
+
+.form-center {
+    margin: 0 auto;
+}
+
+textarea {
+    font-size: 14px;
+}

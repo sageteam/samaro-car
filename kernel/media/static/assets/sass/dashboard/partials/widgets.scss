@@ -1,0 +1,48 @@
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a {
+    border: 1px solid $info;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover .nav-tabs {
+    border: 1px solid $info;
+    background-color: $info;
+    color: $white;
+}
+
+.nav-tabs>li>a:hover {
+    border: 1px solid $info;
+    background-color: $primary;
+    color: $white;
+}
+
+.nav-tabs>li>a {
+    border: 1px solid $info;
+    text-align: center;
+    min-width: 120px;
+    border-radius: 4px;
+    margin-left: 15px;
+    transition: .4s;
+}
+
+.nav-tabs {
+    border-bottom: none;
+}
+
+.nav-tabs>li>a {
+    color: $primary;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:hover,
+.nav-tabs>li.active>a:active {
+    background-color: $info;
+    color: $white;
+}
+
+.tab-pane ul li {
+    margin-bottom: 10px;
+    line-height: 25px;
+}

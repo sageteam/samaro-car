@@ -1,0 +1,139 @@
+// @include font-face('irSansNum', font-files("../assets/fonts/IRANSansWeb(FaNum).eot", "../assets/fonts/IRANSansWeb(FaNum).ttf", "../assets/fonts/IRANSansWeb(FaNum).woff", "../assets/fonts/IRANSansWeb(FaNum).woff2"));
+// @include font-face('irSans', '../assets/fonts/IRANSansWeb(FaNum)');
+
+$font-path: "fonts/IRANSansWeb(FaNum)" !default;
+$font-path-std: "fonts/IRANSansWeb" !default;
+
+
+// Font IRANSans Numeral
+
+@font-face{
+    font-family: 'irSansNum_black';
+    font-style: normal;
+    font-weight: 900;
+    src: url('#{$font-path}_Black.eot');
+    src: url('#{$font-path}_Black.eot#iefix') format('embedded-opentype');
+    src: url('#{$font-path}_Black.woff') format('woff');
+    src: url('#{$font-path}_Black.woff2') format('woff2');
+    src: url('#{$font-path}_Black.ttf') format('truetype');
+};
+
+@font-face{
+    font-family: 'irSansNum_bold';
+    font-style: normal;
+    font-weight: bold;
+    src: url('#{$font-path}_Bold.eot');
+    src: url('#{$font-path}_Bold.eot#iefix') format('embedded-opentype');
+    src: url('#{$font-path}_Bold.woff') format('woff');
+    src: url('#{$font-path}_Bold.woff2') format('woff2');
+    src: url('#{$font-path}_Bold.ttf') format('truetype');
+};
+
+@font-face{
+    font-family: 'irSansNum_medium';
+    font-style: normal;
+    font-weight: 500;
+    src: url('#{$font-path}_Medium.eot');
+    src: url('#{$font-path}_Medium.eot#iefix') format('embedded-opentype');
+    src: url('#{$font-path}_Medium.woff') format('woff');
+    src: url('#{$font-path}_Medium.woff2') format('woff2');
+    src: url('#{$font-path}_Medium.ttf') format('truetype');
+};
+
+@font-face{
+    font-family: 'irSansNum_light';
+    font-style: normal;
+    font-weight: 300;
+    src: url('#{$font-path}_Light.eot');
+    src: url('#{$font-path}_Light.eot#iefix') format('embedded-opentype');
+    src: url('#{$font-path}_Light.woff') format('woff');
+    src: url('#{$font-path}_Light.woff2') format('woff2');
+    src: url('#{$font-path}_Light.ttf') format('truetype');
+};
+
+@font-face{
+    font-family: 'irSansNum_ultralight';
+    font-style: normal;
+    font-weight: 200;
+    src: url('#{$font-path}_UltraLight.eot');
+    src: url('#{$font-path}_UltraLight.eot#iefix') format('embedded-opentype');
+    src: url('#{$font-path}_UltraLight.woff') format('woff');
+    src: url('#{$font-path}_UltraLight.woff2') format('woff2');
+    src: url('#{$font-path}_UltraLight.ttf') format('truetype');
+};
+
+
+// Font IRANSans Standard
+
+@font-face{
+    font-family: 'std_irSansNum_black';
+    font-style: normal;
+    font-weight: 900;
+    src: url('#{$font-path-std}_Black.eot');
+    src: url('#{$font-path-std}_Black.eot#iefix') format('embedded-opentype');
+    src: url('#{$font-path-std}_Black.woff') format('woff');
+    src: url('#{$font-path-std}_Black.woff2') format('woff2');
+    src: url('#{$font-path-std}_Black.ttf') format('truetype');
+};
+
+@font-face{
+    font-family: 'std_irSansNum_bold';
+    font-style: normal;
+    font-weight: bold;
+    src: url('#{$font-path-std}_Bold.eot');
+    src: url('#{$font-path-std}_Bold.eot#iefix') format('embedded-opentype');
+    src: url('#{$font-path-std}_Bold.woff') format('woff');
+    src: url('#{$font-path-std}_Bold.woff2') format('woff2');
+    src: url('#{$font-path-std}_Bold.ttf') format('truetype');
+};
+
+@font-face{
+    font-family: 'std_irSansNum_medium';
+    font-style: normal;
+    font-weight: 500;
+    src: url('#{$font-path-std}_Medium.eot');
+    src: url('#{$font-path-std}_Medium.eot#iefix') format('embedded-opentype');
+    src: url('#{$font-path-std}_Medium.woff') format('woff');
+    src: url('#{$font-path-std}_Medium.woff2') format('woff2');
+    src: url('#{$font-path-std}_Medium.ttf') format('truetype');
+};
+
+@font-face{
+    font-family: 'std_irSansNum_light';
+    font-style: normal;
+    font-weight: 300;
+    src: url('#{$font-path-std}_Light.eot');
+    src: url('#{$font-path-std}_Light.eot#iefix') format('embedded-opentype');
+    src: url('#{$font-path-std}_Light.woff') format('woff');
+    src: url('#{$font-path-std}_Light.woff2') format('woff2');
+    src: url('#{$font-path-std}_Light.ttf') format('truetype');
+};
+
+@font-face{
+    font-family: 'std_irSansNum_ultralight';
+    font-style: normal;
+    font-weight: 200;
+    src: url('#{$font-path-std}_UltraLight.eot');
+    src: url('#{$font-path-std}_UltraLight.eot#iefix') format('embedded-opentype');
+    src: url('#{$font-path-std}_UltraLight.woff') format('woff');
+    src: url('#{$font-path-std}_UltraLight.woff2') format('woff2');
+    src: url('#{$font-path-std}_UltraLight.ttf') format('truetype');
+};
+
+
+// Font IRANSans Numeral
+$font: 'irSansNum';
+$font_black: 'irSansNum_black';
+$font_bold: 'irSansNum_bold';
+$font_medium: 'irSansNum_medium';
+$font_light: 'irSansNum_light';
+$font_ulight: 'irSansNum_ultralight';
+
+
+// Font IRANSans Standard
+$font_std: 'std_irSansNum';
+$font_std_black: 'std_irSansNum_black';
+$font_std_bold: 'std_irSansNum_bold';
+$font_std_medium: 'std_irSansNum_medium';
+$font_std_light: 'std_irSansNum_light';
+$font_std_ulight: 'std_irSansNum_ultralight';

@@ -1,0 +1,145 @@
+.btn-primary {
+    background-image: linear-gradient(to right, $blue-light, $blue-dark);
+    box-shadow: 5px 7px 16px -4px #888;
+    border: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+        outline: none;
+    }
+}
+
+
+.btn-danger {
+    background-image: linear-gradient(to right, $red-light 5%, $red-dark 95%);
+    box-shadow: 5px 7px 16px -4px #888;
+    border: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+        outline: none;
+    }
+}
+
+.btn-primary-hoverable {
+    background-image: linear-gradient(to right, $blue-light, $blue-dark);
+    box-shadow: 5px 7px 16px -4px #888;
+    border: none;
+    transition: background-color 1s;
+    position: relative;
+
+    &:hover,
+    &:focus,
+    &:active {
+        outline: none;
+    }
+
+
+    &:hover {
+        background-color: transparent;
+        background-image: none;
+        color: $dark;
+        &:after {
+            opacity: 1;
+        }
+    }
+
+
+    &:after {
+        content: "";
+        color: $white;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        z-index: 1;
+        background-image: linear-gradient(45deg,
+            rgba(41, 182, 246, 0.5),
+            rgba(41, 182, 246, 0.9),
+            rgba(41, 182, 246, 0.5),
+            rgba(41, 182, 246, 0.9),
+            rgba(41, 182, 246, 0.5));
+        background-size: 800px 800px;
+        background-position: 0px 0px;
+        border-radius: 4px;
+        animation: move 2s infinite linear;
+        opacity: 0;
+        transition: opacity 1s;
+    }
+}
+
+@keyframes move {
+    from {
+        background-position: 0px 600px;
+    }
+
+    to {
+        background-position: -800px 600px;
+    }
+}
+
+.btn-default {
+    border: none;
+    box-shadow: 5px 7px 16px -4px #888;
+    color: $primary;
+}
+
+.btn-big {
+    font-family: $font_bold;
+    font-size: $font-size-normal;
+    padding: 30px;
+}
+
+
+.btn-danger-hoverable {
+    background-image: linear-gradient(to right, $red-light 5%, $red-dark 95%);
+    box-shadow: 5px 7px 16px -4px #888;
+    border: none;
+    transition: background-color 1s;
+    position: relative;
+
+    
+    &:hover,
+    &:focus,
+    &:active {
+        outline: none;
+    }
+
+
+    &:hover {
+        background-color: transparent;
+        background-image: none;
+        color: $dark;
+        &:after {
+            opacity: 1;
+        }
+    }
+
+
+    &:after {
+        content: "";
+        color: $white;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        z-index: 1;
+        background-image: linear-gradient(45deg,
+            rgba(250, 165, 159, 0.5),
+            rgba(250, 165, 159, 0.9),
+            rgba(250, 165, 159, 0.5),
+            rgba(250, 165, 159, 0.9),
+            rgba(250, 165, 159, 0.5));
+        background-size: 800px 800px;
+        background-position: 0px 0px;
+        border-radius: 4px;
+        animation: move 2s infinite linear;
+        opacity: 0;
+        transition: opacity 1s;
+    }
+
+}

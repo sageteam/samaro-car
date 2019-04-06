@@ -1,0 +1,83 @@
+$primary: #3f51b5;
+$info: #29b6f6;
+$warning: #ffae0d;
+$danger: #f65b50;
+$success: #3dc162;
+
+$default: #ebf3fe;
+
+$dark: #1e325e;
+$light: #efefef;
+$gray: #bdc3c7;
+
+$yellow-light: #ffc90d;
+$yellow-dark: #ffab0d;
+
+$red-light: #faa59f;
+$red-dark: #f65b50;
+
+$blue-light: #31bef4;
+$blue-dark: #1983ec;
+
+$white: #fff;
+$black: #000;
+
+
+.error-tip {
+    font-size: 11px;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+.error {
+    color: $danger;
+}
+
+.success {
+    color: $success;
+}
+
+.warning {
+    color: $warning;
+}
+
+.info {
+    color: $info;
+}
+
+.bg-light {
+    background-color: $white;
+    color: $primary;
+}
+
+.bg-blue {
+    background-color: $primary;
+    color: $white;
+}
+
+.bg-info {
+    background-color: $info;
+    color: $white;
+}
+
+.bg-primary {
+    background-color: $primary;
+    color: $white;
+}
+
+.has-error {
+    border: 1px solid $danger !important;
+}
+
+.has-warning {
+    border: 1px solid $warning !important;
+}
+
+.has-success {
+    border: 1px solid $success !important;
+}
+
+.has-info {
+    border: 1px solid $info !important;
+}
+

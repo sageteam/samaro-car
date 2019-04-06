@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="copyright" content="S.A.G.E. Team" />
+    <meta name="author" content="sepehr akbarzadeh" />
+
+    <!-- Dynamic meta tags -->
+    <meta name="keywords" content="{{ view.keywords }}" />
+    <meta name="description" content="{{ view.descriptions }}" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <title>داشبورد | {{ view.title }} </title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" />
+    <link rel="stylesheet" href="{% static 'assets/bootstrap-rtl/bootstrap-rtl.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/bootsnav-master/css/bootsnav.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/fontawesome/css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/animate.css/animate.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/hover.css/css/hover-min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/main.css' %}" />
+    <link rel="shortcut icon" href="{% static 'assets/img/fav.png' %}" type="image/x-icon" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+
+    <div id="toast" class="success">
+        <div id="img"><i class="fas fa-smile-wink"></i></div>
+        <div id="desc">عملیات موفقیت آمیز انجام شد</div>
+    </div>
+    {% include 'dashboard/partials/nav.html' %}
+
+    {% include 'dashboard/partials/sidenav.html' %}
+
+    <!-- Main Section -->
+    <section class="main">
+
+        <div class="container-fluid">
+
+            {% include 'dashboard/partials/top-content.html' %}
+            <!-- Content -->
+            {% block body %}
+            {% endblock %}
+
+        </div>
+
+        <!-- Footer -->
+        {% include 'dashboard/partials/footer.html' %}
+    </section>
+
+    <div class="modal fade" id="comingSoon" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-info modal-header-fixer">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">درحال به روز رسانی</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <p>سایت در حال به روز رسانی است</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-block btn-primary">باشه</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{% static 'assets/bootsnav-master/js/bootstrap.min.js' %}"></script>
+
+    <!-- Fontawesome script -->
+    <script src="{% static 'assets/fontawesome/js/all.min.js' %}"></script>
+
+    <!-- select 2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+    <!-- Vue JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- main javascript -->
+    <script src="{% static 'assets/main.js' %}"></script>
+
+    <script>
+        $(".comingSoonBtn").click(function () {
+            $('#comingSoon').modal('show')
+        });
+    </script>
+
+
+    {% block scripts %}
+    {% endblock %}
+
+</body>
+
+</html>

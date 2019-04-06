@@ -1,0 +1,12 @@
+.tooltip {
+    font-family: $font_std_ulight;
+}
+
+.tooltip.top .tooltip-arrow {
+    border-top-color: $info;
+}
+.tooltip-inner {
+    background-color: $info;
+    max-width: 300px;
+    padding: 10px;
+}

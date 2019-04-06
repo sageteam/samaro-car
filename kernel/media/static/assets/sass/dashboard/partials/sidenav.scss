@@ -1,0 +1,183 @@
+.sidenav {
+    display: block;
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    right: 0;
+    background-color: $white;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.navbar-default .navbar-toggle {
+    border: none !important;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: $white;
+    transition: .4s;
+}
+
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+    background-color: transparent;
+
+    .icon-bar {
+        background-color: $yellow-light;
+    }
+}
+
+.sidenav .closeSideNav {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    font-size: 36px;
+    display: block;
+    color: $danger;
+    transition-duration: .4s;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: none;
+        color: $primary;
+    }
+}
+
+.openSideNav {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 20px;
+    display: block;
+    color: $white;
+    transition-duration: .4s;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: none;
+        color: $yellow-light;
+    }
+}
+
+
+.main {
+    transition-duration: .4s;
+    margin-right: 250px;
+}
+
+
+
+.sidenav {
+    .underline {
+        border-bottom: 1px solid $primary;
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .box {
+        width: 100%;
+        text-align: center;
+        font-family: $font_medium;
+        color: $white;
+        background-color: $primary;
+        border-radius: 8px;
+        padding: 12px;
+    }
+
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 50%;
+        border: solid 4px $warning;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .items {
+        font-size: 18px;
+
+        .item {
+            position: relative;
+            margin-bottom: 1px;
+
+            a {
+
+                &.active {
+                    color: $white;
+                    .primary {
+                        display: none;
+                    }
+
+                    .secondary {
+                        display: inline-block;
+                    }
+                    &:after {
+                        width: 100%;
+                    }
+                }
+                color: $primary;
+                display: inline-block;
+                padding: 10px;
+                margin-right: 20px;
+                transition: all ease 0.8s;
+                text-decoration: none;
+                width: 100%;
+                z-index: 2;
+
+                .text {
+                    top: 3px;
+                    position: relative;
+                }
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    background-color: $primary;
+                    border-bottom-left-radius: 16px;
+                    border-top-left-radius: 16px;
+                    color: $white;
+                    width: 0%;
+                    top: 0;
+                    right: 0;
+                    height: 100%;
+                    transition: 0.4s linear;
+                    z-index: -1;
+                }
+
+                &:hover {
+                    color: $white;
+
+                    .primary {
+                        display: none;
+                    }
+
+                    .secondary {
+                        display: inline-block;
+                    }
+                }
+
+                &:hover:after {
+                    width: 100%;
+                }
+
+                .secondary {
+                    display: none;
+                }
+
+                .icon {
+                    width: 30px;
+                    height: 30px;
+                    float: right;
+                }
+
+            }
+        }
+    }
+}

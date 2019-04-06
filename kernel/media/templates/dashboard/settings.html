@@ -1,0 +1,55 @@
+{% extends 'shared/dashboard.html' %}
+
+
+{% block body %}
+<div class="col-md-12">
+    <div class="mt-35 panel-box">
+        <h2 class="title">تنظیمات</h2>
+        <div class="row">
+            <div class="col-md-5 col-md-push-1">
+                <div class="form-row mt-15" style="font-size: 16px;">
+                    <label class="required mr-5 mb-15" for="name">ترجیح دریافت پیام از طریق:</label>
+                    <div class="radio-container">
+                        <input type="radio" name="get_resp_from" id="email" />
+                        <label for="email"><span> ایمیل </span></label>
+                        <br>
+                        <input type="radio" checked="checked" name="get_resp_from" id="ticket" />
+                        <label for="ticket"><span> تیکت </span></label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 col-md-push-1">
+                <br>
+                <label class="required mr-5 mb-15" for="name">ترجیح دریافت پیام از طریق:</label>
+                <ul class="list-unstyled mt-15">
+                    <li style="position: relative;">
+                        <label class="checkmark-wrapper">دریافت ایمیل اطلاعات سفر
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                    <li style="position: relative;">
+                        <label class="checkmark-wrapper">دریافت خبرنامه سمارو
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                    <li style="position: relative;">
+                        <label class="checkmark-wrapper">دریافت ایمیل تراکنش های سفر
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-2 col-md-push-9">
+                <button class="mt-50 btn btn-primary btn-md btn-block">ذخیره تغییرات</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{% endblock body %}

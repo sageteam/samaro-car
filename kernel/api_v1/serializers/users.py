@@ -82,7 +82,6 @@ class UserProfileMainSerializer(ModelSerializer):
         model = GeneralProfile
         fields = ('gender', 'birth_date', 'national_code', 'tel', 'mobile', 'adr', 'postal_code', 'pic', 'national_code_pic', 'edu_degree', 'about')
 
-
 class UserSettingSerializer(ModelSerializer):
     
     class Meta:

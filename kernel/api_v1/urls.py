@@ -29,5 +29,6 @@ urlpatterns = [
     re_path(r'^user/profile/(?P<profile>\d+)/driver/$', views.APIRetrieveUpdateUserProfileDriver.as_view(), name = 'api_user_profile_driver'),
     re_path(r'^user/profile/(?P<profile>\d+)/passenger/$', views.APIRetrieveUpdateUserProfilePassenger.as_view(), name = 'api_user_profile_passenger'),
     re_path(r'^user/profile/(?P<profile>\d+)/transmit/$', views.APIRetrieveUpdateUserProfileTransmit.as_view(), name = 'api_user_profile_transmit'),
+    re_path(r'^user/(?P<user>\d+)/setting/$', views.APIRetrieveUpdateUserSetting.as_view(), name = 'api_user_profile_setting'),
     re_path(r'^user/(?P<email>\w+@\w+.\w+)/$', views.APIRetrieveUpdateUser.as_view(), name = 'api_user_update'),
 ]

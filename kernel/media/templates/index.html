@@ -1,0 +1,243 @@
+{% extends 'shared/site.html' %}
+
+{% load static %}
+
+{% block body %}
+<div class="banner">
+	<img src="{% static 'assets/img/banner/banner-complete.svg' %}" alt="">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-md-6">
+				<div class="registration">
+					<ul class="list-inline">
+						<li>
+							<label class="all-radio">
+								<input type="radio" checked="checked" name="radio">
+								<span class="s-checkmark traveler"></span>
+							</label>
+						</li>
+						<li>
+							<label class="all-radio">
+								<input type="radio" checked="checked" name="radio">
+								<span class="s-checkmark dispatch"></span>
+							</label>
+						</li>
+						<li>
+							<label class="all-radio">
+								<input type="radio" checked="checked" name="radio">
+								<span class="s-checkmark driver"></span>
+							</label>
+						</li>
+					</ul>
+					<div class="selector-box top-icon">
+						<select class="selectbox">
+							<option>مبدا</option>
+							<option>تهران</option>
+							<option>نوشهر</option>
+							<option>بندر عباس</option>
+
+						</select>
+						<i class="fas fa-angle-down"></i>
+						<img src="{% static 'assets/img/icons/icon-origin.svg' %}" alt="" />
+					</div>
+					<div class="selector-box mt-30 top-icon">
+						<select class="selectbox">
+							<option>مقصد</option>
+							<option>تهران</option>
+							<option>نوشهر</option>
+							<option>بندر عباس</option>
+
+						</select>
+						<i class="fas fa-angle-down"></i>
+						<img src="{% static 'assets/img/icons/icon-destination.svg' %}" alt="" />
+					</div>
+					<div class="form-group top-icon relative">
+						<input type="email" class="form-control" placeholder="تاریخ" />
+						<img src="{% static 'assets/img/icons/icon-calendar-01.svg' %}" alt="" />
+					</div>
+
+					<button class="btn btn-primary" type="submit">
+						جستجو
+					</button>
+				</div>
+			</div>
+			<div class="hidden-sm hidden-xs col-md-6"></div>
+		</div>
+	</div>
+</div>
+
+<div class="about-landing titled">
+	<img class="img-responsive" src="{% static 'assets/img/bg/bg-01.svg' %}" alt="">
+	<div class="yellow-box"></div>
+	<div class="content orange">
+		<h3>درباره سمارو</h3>
+		<p>با توجه به نیاز و خلا ای که در زمینه سفرهای بین شهری و ارسال مرسوله های نه چندان بزرگ برای مجموعه سمارو وجود داشت
+			، مدیران این گروه به فکر ساخت اپلیکیشن و وب سایت در باب
+			این مسئله افتادند. مهم ترین مزیتی که به دنبال آن بوده و هستیم ، کاهش هزینه هم برای راننده و هم مسافر و به دنبال آن
+			گامی در جهت بهبود وضعیت محیط زیست هست
+			ثبت سفر چه از طریق مسافر و چه راننده و چه ارسال کننده رایگان بوده و افراد می توانند به راحتی مسیرهای خود را با
+			افراد مختلف شریک کرده و لذت سفر دسته جمعی را در کنار همدیگر تجربه
+			کنند. این هم لازم است اشاره کنیم که شما برای اولین بار از طریق سامانه سمارو می توانید مرسولات مناسب خودرو شخصی را
+			با قیمتی مناسب تر جا به جا نمائید
+		</p>
+	</div>
+</div>
+
+
+
+<div class="with-you">
+	<p>ما ، در <span class="light">روشنایی روز</span> و <span class="dark">تاریکی شب</span> همراه شما هستیم</p>
+</div>
+
+<div class="skills titled">
+	<div class="content blue">
+		<h3>قابلیت ما</h3>
+		<div class="container hidden-sm hidden-xs">
+			<div class="row">
+				<div class="col-md-4 col-lg-3">
+					<div class="skill">
+						<img src="{% static 'assets/img/icons/icon-key.svg' %}" alt="" />
+						<h4>سفر ارزان و راحت</h4>
+						<p>با سمارو سفرهای ارزان و راحت را
+							تجربه می کنید</p>
+					</div>
+				</div>
+				<div class="col-md-4 col-lg-3">
+					<div class="skill">
+						<img src="{% static 'assets/img/pictures/box.svg' %}" alt="" />
+						<h4>ارسال مرسوله های کوچک</h4>
+						<p>در سمارو می توانید، مرسوله های کوچک
+							بین شهری را با هزینه کمتر بفرستید</p>
+					</div>
+				</div>
+				<div class="col-md-4 col-lg-3">
+					<div class="skill">
+						<img src="{% static 'assets/img/icons/icon-handcoin.svg' %}" alt="" />
+						<h4>کسب درآمد</h4>
+						<p>با ثبت سفر و همراه کردن مسافر یا
+							مرسوله با خود بدون اختصاص
+							وقت اضافه کسب درآمد کنید</p>
+					</div>
+				</div>
+				<div class="col-md-4 col-lg-3">
+					<div class="skill">
+						<img src="{% static 'assets/img/pictures/arrows.svg' %}" alt="" />
+						<h4>کمک به محیط زیست</h4>
+						<p>با همراه شدن افراد در سفرها
+							خودروهای تک سرنشین کم شده
+							و به محیط زیست کمک می شود
+						</p>
+					</div>
+				</div>
+				<div class="col-md-4 col-lg-3">
+					<div class="skill">
+						<img src="{% static 'assets/img/icons/icon-rocket.svg' %}" alt="" />
+						<h4>رزرو سریع در روزهای پرتردد</h4>
+						<p>روزهای اوج سفر که بلیط گرفتن سخته
+							با سمارو می توانید سفر اشتراکی بروید</p>
+					</div>
+				</div>
+				<div class="col-md-4 col-lg-3">
+					<div class="skill">
+						<img src="{% static 'assets/img/icons/icon-camera.svg' %}" alt="" />
+						<h4>ثبت سفر توسط مسافر</h4>
+						<p>به این صورت راننده ها هم می توانند
+							مسیرهای مورد نظر شما را ببینند</p>
+					</div>
+				</div>
+				<div class="col-md-2 hidden-lg"></div>
+				<div class="col-md-4 col-lg-3">
+					<div class="skill">
+						<img src="{% static 'assets/img/icons/icon-locked.svg' %}" alt="" />
+						<h4>امنیت</h4>
+						<p>سیستم احراز هویت سمارو، مشخصات
+							کاربران را بادقت بالا، ثبت و بررسی میکند
+						</p>
+					</div>
+				</div>
+				<div class="col-md-4 col-lg-3">
+					<div class="skill">
+						<img src="{% static 'assets/img/icons/icon-letter.svg' %}" alt="" />
+						<h4>بارنامه آنلاین</h4>
+						<p>ارسال کننده مرسوله، یک بارنامه آنلاین
+							پر میکند</p>
+					</div>
+				</div>
+				<div class="col-md-2 hidden-lg"></div>
+			</div>
+		</div>
+		<div class="container hidden-lg hidden-md">
+			<div id="owl-one" class="row owl-carousel owl-theme">
+				<div class="col-md-3">
+					<div class="skill">
+						<img src="{% static 'assets/img/icons/icon-key.svg' %}" alt="" />
+						<h4>سفر ارزان و راحت</h4>
+						<p>با سمارو سفرهای ارزان و راحت را
+							تجربه می کنید</p>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="skill">
+						<img src="{% static 'assets/img/pictures/box.svg' %}" alt="" />
+						<h4>ارسال مرسوله های کوچک</h4>
+						<p>در سمارو می توانید، مرسوله های کوچک
+							بین شهری را با هزینه کمتر بفرستید</p>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="skill">
+						<img src="{% static 'assets/img/icons/icon-handcoin.svg' %}" alt="" />
+						<h4>کسب درآمد</h4>
+						<p>با ثبت سفر و همراه کردن مسافر یا
+							مرسوله با خود بدون اختصاص
+							وقت اضافه کسب درآمد کنید</p>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="skill">
+						<img src="{% static 'assets/img/pictures/arrows.svg' %}" alt="" />
+						<h4>کمک به محیط زیست</h4>
+						<p>با همراه شدن افراد در سفرها
+							خودروهای تک سرنشین کم شده
+							و به محیط زیست کمک می شود
+						</p>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="skill">
+						<img src="{% static 'assets/img/icons/icon-rocket.svg' %}" alt="" />
+						<h4>رزرو سریع در روزهای پرتردد</h4>
+						<p>روزهای اوج سفر که بلیط گرفتن سخته
+							با سمارو می توانید سفر اشتراکی بروید</p>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="skill">
+						<img src="{% static 'assets/img/icons/icon-camera.svg' %}" alt="" />
+						<h4>ثبت سفر توسط مسافر</h4>
+						<p>به این صورت راننده ها هم می توانند
+							مسیرهای مورد نظر شما را ببینند</p>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="skill">
+						<img src="{% static 'assets/img/icons/icon-locked.svg' %}" alt="" />
+						<h4>امنیت</h4>
+						<p>سیستم احراز هویت سمارو، مشخصات
+							کاربران را بادقت بالا، ثبت و بررسی میکند
+						</p>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="skill">
+						<img src="{% static 'assets/img/icons/icon-letter.svg' %}" alt="" />
+						<h4>بارنامه آنلاین</h4>
+						<p>ارسال کننده مرسوله، یک بارنامه آنلاین
+							پر میکند</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock body %}

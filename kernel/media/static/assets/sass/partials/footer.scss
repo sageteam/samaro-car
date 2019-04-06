@@ -1,0 +1,257 @@
+footer {
+  position: relative;
+  padding-top: 60px;
+  .blue-box {
+    width: 100%;
+    top: -1px;
+    background-color: #3f51b5;
+    height: 500px;
+    z-index: 1;
+    position: absolute;
+  }
+  >img {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+  }
+
+  .mobile-systems {
+    text-align: center;
+    a {
+      padding: 20px 35px;
+      border-radius: 4px;
+      font-weight: $bold;
+      font-size: 21px;
+      &.blue {
+        background-color: #3f51b5;
+        color: #ffae0d;
+        margin-left: 15px;
+      }
+      &.yellow {
+        padding: 20px 52px;
+        border: 1px solid #3f51b5;
+        color: #3f51b5
+      }
+    }
+  }
+
+  .intro {
+    margin-top: 42px;
+    background-color: #ffae0d;
+    z-index: 3;
+    position: relative;
+
+    .container {
+      margin-top: 20px;
+
+      .part-1 {
+        h4 {
+          font-weight: $bold;
+          font-size: $font-size-large;
+          text-align: center;
+          color: #1e325e;
+
+          &:nth-child(1) {
+            margin-top: 30px;
+            margin-bottom: 50px;
+          }
+
+        }
+        .or {
+          margin-top: 30px;
+          margin-bottom: 50px;
+        }
+      }
+    }
+    .form-group {
+      input {
+        width: 290px !important;
+        font-size: 15px;
+        padding: 5px 10px;
+        height: 50px;
+        border: 1px solid #1e325e;
+        background-color: #ffae0d;
+        color: #1e325e;
+        margin-left: 20px;
+        &::placeholder {
+          color: #1e325e;
+          font-weight: $bold;
+        }
+      }
+      button {
+        width: 160px;
+        font-size: 15px;
+        height: 50px;
+        font-size: 19px;
+        background-color: #ffae0d;
+        border: 1px solid #1e325e;
+        color: #1e325e;
+        font-weight: $bold;
+      }
+    }
+
+  }
+  .section-2 {
+    padding-bottom: 35px;
+    background-color: #1e325e;
+    z-index: 3;
+    position: relative;
+    h3 {
+      color: $info;
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 65px;
+      font-weight: $bold;
+    }
+    .social-media {
+      width: 100%;
+      .column {
+        width: 20%;
+        background-color: #1e325e;
+        border: 2px solid #ffae0d;
+        position: relative;
+        transition: .4s;
+        &:first-child {
+          border-right: none;
+        }
+        &:last-child {
+          border-left: none;
+        }
+        img {
+          width: 45px;
+          margin: 25px;
+          transition: .4s;
+          &.blue {
+            position: absolute;
+            opacity: 0;
+            transition: .4s;
+          }
+        }
+        &:hover {
+          background-color: #ffae0d;
+          .yellow {
+            opacity: 0;
+          }
+          .blue {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    .companies {
+      margin-top: 50px;
+      h5 {
+        text-align: center;
+        color: #fff;
+        margin-top: 15px;
+      }
+    }
+    .info {
+      margin-top: 50px;
+      .svg-inline--fa {
+        color: #ffae0d;
+        font-size: 35px;
+        margin-right: 30px;
+      }
+      span {
+        color: #29b6f6;
+        margin-right: 10px;
+        font-size: 25px;
+      }
+    }
+  }
+  .copyright {
+    padding: 20px 0;
+    h3 {
+      font-size: $font-size-normal;
+
+      font-weight: $bold;
+      color: #1e325e;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  footer {
+    .part-2 {
+      img {
+        width: 200px;
+        margin: auto;
+        display: block;
+        margin-top: 70px;
+      }
+    }
+    .section-2 {
+      .companies {
+        h5 {
+          font-size: 13px;
+        }
+      }
+    } 
+
+  }
+}
+
+@media (max-width: 992px) {
+
+  footer {
+
+    .intro {
+      .form-group {
+        input {
+          margin: auto;
+        }
+      }
+      .container {
+        .part-1 {
+          .or {
+            margin-bottom: 30px;
+          }
+          h4 {
+            font-size: 18px;
+            line-height: 40px;
+          }
+        }
+      }
+    }
+    .copyright {
+      padding: 20px 0;
+      background-color: #1e325e;
+      h3 {
+        margin: 0;
+        color: #fff !important;
+      }
+    }
+  }
+}
+@media (max-width: 410px) {
+  footer {
+
+    .intro {
+      margin-top: 0;
+      .form-group {
+        input {
+          width: 100% !important;
+        }
+        button {
+          font-size: 15px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 353px) {
+  footer {
+    .mobile-systems {
+      a {
+        width: 100%;
+    display: block;
+    &.blue {
+      margin-top: 10px;
+    }
+      }
+    }
+  }
+}

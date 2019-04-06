@@ -1,0 +1,373 @@
+// <<<<<<< HEAD
+// /* No CSS *//*# sourceMappingURL=registration.css.map */
+// =======
+.banner {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 180px;
+  background-color: #252f6a;
+
+  >img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+.registration {
+  ul {
+    text-align: center;
+    margin-bottom: 75px;
+
+    li {
+      width: 130px;
+    }
+  }
+
+  background-color: #fff;
+  padding: 48px 0px;
+  border-radius: 10px;
+  margin-top: 130px;
+  margin-left: 80px;
+
+  .selector-box.top-icon {
+    width: 80%;
+    margin: 0 10%;
+  }
+
+  .form-group.top-icon {
+    width: 180px;
+    margin: auto;
+
+  }
+
+  .top-icon {
+    img {
+      width: 40px;
+      position: absolute;
+      top: -25px;
+      right: 30px;
+    }
+  }
+
+  select,
+  input {
+    padding: 10px;
+    padding-top: 15px;
+    border: 1px solid #a9a9a9;
+    border-radius: 5px 5px 0 0;
+  }
+
+  input {
+    margin-top: 35px;
+    height: 54px;
+    margin-top: 35px;
+  }
+
+  select {
+    width: 100%;
+  }
+
+  button {
+    margin: auto;
+    display: block;
+    width: 195px;
+    font-size: 20px;
+    margin-top: 35px;
+    padding: 15px 9px;
+    background-color: #29b6f6;
+    border-color: #29b6f6;
+  }
+
+  .selector-box {
+    position: relative;
+    font-weight: 500;
+    color: #a9a9a9;
+
+    .svg-inline--fa {
+      position: absolute;
+      background-color: #fff;
+      left: 5px;
+      height: 22px;
+      top: 20px;
+      width: 35px;
+      color: #a9a9a9;
+      padding-left: 6px;
+    }
+  }
+}
+
+.all-radio {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.all-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.s-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  border-radius: 3px;
+  height: 40px;
+  background-color: #eee;
+
+  &:before {
+    position: absolute;
+    color: #fff;
+    right: 0;
+    left: 0;
+    text-align: center;
+  }
+
+  &.driver:before {
+    content: "راننده هستم";
+    font-size: 16px;
+    top: 7px;
+  }
+
+  &.dispatch:before {
+    content: "صاحب مرسوله هستم";
+    font-size: 11px;
+    top: 12px;
+  }
+
+  &.traveler:before {
+    content: "مسافر هستم";
+    font-size: 16px;
+    top: 7px;
+  }
+}
+
+.all-radio input~.s-checkmark {
+  background-color: #3f51b5;
+}
+
+.all-radio input:checked~.s-checkmark {
+  background-color: #fff;
+
+  box-shadow: 0px 0px 10px #000;
+
+  &:before {
+    color: #3f51b5;
+  }
+}
+
+
+.titled {
+  .content {
+    z-index: 2;
+    position: relative;
+    padding-bottom: 50px;
+
+    h3 {
+      position: absolute;
+      font-weight: 600;
+
+      &:after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 1px;
+        bottom: -20px;
+        right: 0;
+        left: 0;
+        margin: auto;
+      }
+    }
+
+    &.orange {
+      background-color: #ffae0d;
+
+      h3 {
+        color: #4251b5;
+        left: 10%;
+        top: -100px;
+
+        &:after {
+          background-color: #4251b5;
+          width: 160px;
+          bottom: -25px;
+          right: -20px;
+        }
+      }
+    }
+
+    &.blue {
+      background-color: #3f51b5;
+      padding-top: 90px;
+
+      h3 {
+        color: #ffae0d;
+        right: 12%;
+        top: 30px;
+
+        &:after {
+          background-color: #ffae0d;
+          width: 135px;
+          bottom: -20px;
+          right: auto;
+          left: -29px;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.about-landing {
+  position: relative;
+
+  img {
+    position: absolute;
+    top: -130px;
+    width: 100%;
+  }
+
+  p {
+    margin-top: 25px;
+    font-weight: 500;
+    line-height: 40px;
+    padding: 0 130px;
+  }
+}
+
+.skills {
+  .skill {
+    background-color: #fff;
+    padding: 21px;
+    border-radius: 8px;
+    margin: 15px;
+    text-align: center;
+    margin-top: 44px;
+    padding-bottom: 80px;
+    position: relative;
+    box-shadow: 0px 0px 20px #444444;
+
+    img {
+      width: 50px;
+      margin: auto;
+      display: block;
+      margin-bottom: 25px;
+      height: 60px;
+    }
+
+    h4 {
+      text-align: center;
+      color: #29b6f6;
+      font-weight: 600;
+      font-size: 17px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 24px;
+      position: absolute;
+      width: 80%;
+      right: 0;
+      left: 0;
+      margin: 0 10%;
+      color: #7d7d7d;
+    }
+  }
+}
+
+#owl-one {
+  .owl-nav {
+    display: none;
+  }
+}
+
+.with-you {
+  text-align: center;
+  padding: 65px 0;
+  font-size: 35px;
+  color: #000;
+  font-weight: 600;
+
+  .light {
+    color: #ffae0d;
+  }
+
+  .dark {
+    color: #3f51b5;
+  }
+}
+
+@media (max-width: 1200px) {
+  .registration {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .registration {
+    margin-top: 100%;
+  }
+
+  .banner {
+    >img {
+      width: 168%;
+    }
+  }
+
+  .with-you {
+    font-size: 20px;
+    line-height: 35px;
+  }
+
+  .about-landing {
+    p {
+      padding: 0 30px;
+    }
+  }
+}
+
+@media (max-width: 520px) {
+  .about-landing {
+    .yellow-box {
+
+      width: 100%;
+      height: 100px;
+      background-color: #ffae0d;
+      position: absolute;
+      top: -65px;
+    }
+  }
+
+  .titled {
+    .content.orange {
+      h3 {
+        color: #4251b5;
+        left: 20%;
+        top: -100px;
+      }
+    }
+  }
+}
+
+@media (max-width: 445px) {
+  .registration {
+    ul {
+      li {
+        margin: auto;
+        height: 45px;
+      }
+    }
+  }
+}
+// >>>>>>> master

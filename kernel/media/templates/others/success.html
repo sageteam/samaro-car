@@ -1,0 +1,69 @@
+{% load static %}
+{% load widget_tweaks%}
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ view.title }}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/others/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/others/font/fontawesome-all.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/others/iosoon-style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/others/iosoon-theme6.css' %}" />
+    <link rel="shortcut icon" href="{% static 'assets/img/fav.png' %}" type="image/x-icon" />
+</head>
+
+<body>
+    <div class="form-body">
+        <div class="row">
+            <div class="img-holder on-top">
+                <div class="info-holder">
+                    <img src="{% static 'assets/img/logo-simple.svg' %}" alt="">
+                </div>
+            </div>
+            <div class="form-holder custom-bg">
+                <div class="form-content">
+                    <div class="form-items">
+                        <div class="form-row logo-social">
+                            <div class="col-6">
+                                <div class="website-logo-inside">
+                                    <a href="/">
+                                        <div class="logo">
+                                            <img class="logo-size" src="{% static 'assets/img/other_pages/logo-light.svg' %}"
+                                                alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="other-links no-bg-icon">
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a
+                                        href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-info">
+                            <div class="text-center">
+                                <br/>
+                                <br/>
+                                عملیات با موفقیت انجام شد
+                                <br/>
+                                <br/>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{% static 'assets/others/popper.min.js' %}"></script>
+    <script src="{% static 'assets/others/main.js' %}"></script>
+</body>
+
+</html>

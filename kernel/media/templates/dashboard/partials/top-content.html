@@ -1,0 +1,65 @@
+{% load static %}
+<!-- Panel Banner -->
+<div class="col-md-12">
+    <div class="mt-20">
+        <!-- Panel -->
+        <div class="panel-box sm">
+            <h1 class="title">سمارو را به دوستانتان معرفی کنید</h1>
+            <p class="text mt-20">شما می توانید با کلیک بر روی این قسمت سمارو را به دیگر دوستانتان
+                معرفی کنید.</p>
+            <p class="text">تا آن ها نیز از سفر و ارسال مرسوله مطمئن بهرمند شوند.</p>
+            <img class="pic-left img-responsive" src="{% static 'assets/img/pictures/car-vector.svg' %}" alt="">
+        </div>
+    </div>
+</div>
+
+<!-- Tabs -->
+<div class="s-navs">
+    <div class="col-md-4">
+        <div class="mt-20">
+            <a class="comingSoonBtn" href="" data-toggle="modal" data-target="comingSoon">
+                <div class="panel-box xs panel-link {% if view.category == 'همسفر' %} activated {% endif %}">
+                    <div class="center">
+                        <p class="text">همسفر هستم</p>
+                    </div>
+                    <div class="side-left"></div>
+                    <div class="side-right"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="mt-20">
+            <a class="comingSoonBtn" href="" data-toggle="modal" data-target="comingSoon">
+                <div class="panel-box xs panel-link {% if view.category == 'transmit' %} activated {% endif %}">
+                    <div class="center">
+                        <p class="text">صاحب مرسوله هستم</p>
+                    </div>
+                    <div class="side-left"></div>
+                    <div class="side-right"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="mt-20">
+            <a class="comingSoonBtn" href="" data-toggle="modal" data-target="comingSoon">
+                <div class="panel-box xs panel-link {% if view.category == 'همسفر' %} activated {% endif %}">
+                    <div class="center">
+                        <p class="text">راننده هستم</p>
+                    </div>
+                    <div class="side-left"></div>
+                    <div class="side-right"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="col-md-12">
+        <hr class="line mt-35 mb-35">
+    </div>
+</div>

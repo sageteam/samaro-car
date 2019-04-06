@@ -8,6 +8,7 @@ from users.models import GeneralProfile
 from users.models import Driver
 from users.models import Passenger
 from users.models import Transmit
+from users.models import Setting
 from users.submodels.detail import Machine
 from users.submodels.detail import Bank
 
@@ -20,11 +21,15 @@ def create_user_profile(sender, instance, created, **kwargs):
         # other profiles
         Passenger.objects.create(profile=instance.profile)
         Transmit.objects.create(profile=instance.profile)
+        Setting.objects.create(profile=instance.profile)
 
         # Driver info profile
         Driver.objects.create(profile=instance.profile)
         Machine.objects.create(driver = instance.profile.driver)
         Bank.objects.create(driver = instance.profile.driver)
+
+        # user setting
+        Setting.objects.create(user = instance)
 
     else:
         instance.profile.save()
@@ -33,3 +38,4 @@ def create_user_profile(sender, instance, created, **kwargs):
         instance.profile.driver.bank.save()
         instance.profile.passenger.save()
         instance.profile.transmit.save()
+        instance.setting.save()

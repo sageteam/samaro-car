@@ -1,0 +1,122 @@
+{% extends 'shared/dashboard.html' %}
+
+
+{% block body %}
+
+<div class="col-md-12">
+    <div class="mt-35 panel-box">
+        <h2 class="title">مسیر منتخب</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    <span class="form-row">
+                        <label class="mb-15" for="date">مقصد</label>
+                        <select class="select-city" name="state">
+                            <option value="تهران">تهران</option>
+                            <option value="نوشهر">نوشهر</option>
+                            <option value="نوشهر">نوشهر</option>
+                            <option value="نوشهر">نوشهر</option>
+                            <option value="نوشهر">نوشهر</option>
+                            <option value="نوشهر">نوشهر</option>
+                            <option value="نوشهر">نوشهر</option>
+                        </select>
+                    </span>
+                    <span class="form-row">
+                        <label class="mt-15 mb-15" for="date">محل تقریبی مبدا</label>
+                        <select class="select-city" name="state">
+                            <option value="تهران">تهران</option>
+                            <option value="نوشهر">نوشهر</option>
+                            <option value="نوشهر">نوشهر</option>
+                            <option value="نوشهر">نوشهر</option>
+                            <option value="نوشهر">نوشهر</option>
+                            <option value="نوشهر">نوشهر</option>
+                            <option value="نوشهر">نوشهر</option>
+                        </select>
+                    </span>
+                </div>
+                <div class="col-md-4">
+                    <span class="form-row">
+                        <label class="mb-15" for="date">مقصد</label>
+                        <select class="select-city" name="state">
+                            <option value="تهران">تهران</option>
+                            <option value="نوشهر">نوشهر</option>
+                            <option value="نوشهر">نوشهر</option>
+                            <option value="نوشهر">نوشهر</option>
+                            <option value="نوشهر">نوشهر</option>
+                            <option value="نوشهر">نوشهر</option>
+                            <option value="نوشهر">نوشهر</option>
+                        </select>
+                    </span>
+                    <span class="form-row">
+                        <label class="mt-15 mb-15" for="date">محل تقریبی مقصد</label>
+                        <select class="select-city" name="state">
+                            <option value="تهران">تهران</option>
+                            <option value="نوشهر">نوشهر</option>
+                            <option value="نوشهر">نوشهر</option>
+                            <option value="نوشهر">نوشهر</option>
+                            <option value="نوشهر">نوشهر</option>
+                            <option value="نوشهر">نوشهر</option>
+                            <option value="نوشهر">نوشهر</option>
+                        </select>
+                    </span>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-row">
+                        <label class="mb-15 mt-5" for="title">عنوان</label>
+                        <div style="position: relative;">
+                            <input class="txtb fa-num" type="text" name="title" id="title" />
+                        </div>
+                    </div>
+                    <button id="tttt" class="btn btn-primary btn-lg btn-block  mt-50">ثبت مسیر انتخابی</button>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-hover table-responsive table-persian table-primary mt-50">
+                            <thead>
+                                <tr>
+                                    <th class="text-center"></th>
+                                    <th class="text-center">مبدا</th>
+                                    <th class="text-center">مقصد</th>
+                                    <th class="text-center">افزودن به فرم جستجو</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">1</td>
+                                    <td class="text-center">تهران</td>
+                                    <td class="text-center">نوشهر</td>
+                                    <td class="text-center">
+                                        <a href="#"><i class="fa fa-plus-circle"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+
+
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        $('.select-city').select2({
+            placeholder: "یک شهر را انتخاب کنید",
+            width: '100%'
+        }).val(null).trigger('change');
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('#tttt').click(function () {
+            $('#toast').addClass('show');
+            setTimeout(() => {
+                $('#toast').removeClass('show');
+            }, 5000);
+        });
+    });
+</script>
+{% endblock scripts %}

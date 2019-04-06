@@ -39,11 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_filters',
+    'widget_tweaks',
     'accounts',
     'users',
     'ticket',
     'trip',
     'api_v1',
+    'website',
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
@@ -63,7 +65,7 @@ ROOT_URLCONF = 'kernel.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'media/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

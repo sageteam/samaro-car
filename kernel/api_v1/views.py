@@ -27,6 +27,7 @@ from accounts.models import User
 from users.models import GeneralProfile
 from users.models import Driver
 from users.models import Passenger
+from users.models import Setting
 from users.models import Transmit
 from api_v1.serializers.users import UserSerializer
 from api_v1.serializers.users import UserMainSerializer
@@ -34,6 +35,7 @@ from api_v1.serializers.users import UserProfileMainSerializer
 from api_v1.serializers.users import UserProfileDriverMainSerializer
 from api_v1.serializers.users import UserProfileTransmitMainSerializer
 from api_v1.serializers.users import UserProfilePassengerMainSerializer
+from api_v1.serializers.users import UserSettingSerializer
 
 ######## City ########
 
@@ -107,6 +109,12 @@ class APIRetrieveUpdateUser(generics.RetrieveUpdateAPIView):
 class APIRetrieveUpdateUserProfile(generics.RetrieveUpdateAPIView):
     queryset = GeneralProfile.objects.all()
     serializer_class = UserProfileMainSerializer
+    lookup_field = 'user'
+    lookup_url_kwarg = 'user'
+
+class APIRetrieveUpdateUserSetting(generics.RetrieveUpdateAPIView):
+    queryset = Setting.objects.all()
+    serializer_class = UserSettingSerializer
     lookup_field = 'user'
     lookup_url_kwarg = 'user'
     

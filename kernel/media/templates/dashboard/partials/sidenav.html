@@ -1,0 +1,84 @@
+{% load static %}
+<!-- Aside Navigation -->
+<a class="openSideNav"><i class="fa fa-bars"></i></a>
+<aside id="sidenav_id" class="sidenav">
+
+    <a class="closeSideNav">&times;</a>
+    <br>
+    <div class="profile">
+        <div class="profile-pic mt-20 mb-50">
+            <img class="img-responsive" src="{% static 'assets/img/profile/sepehr-akbarzadeh.jpg' %}" alt="">
+        </div>
+        <h3 class="text-center name">سپهر اکبرزاده</h3>
+        <div class="underline mt-30"></div>
+        <div class="score mt-20">
+            <div class="col-md-6">
+                <p class="text-center">اعتبار</p>
+                <div class="box">1000000</div>
+            </div>
+            <div class="col-md-6">
+                <p class="text-center">امتیاز</p>
+                <div class="box">140</div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <ul class="items list-unstyled pl-20 mt-20">
+        <li class="item">
+            <a class="{% if view.title == 'خانه' %}active{% endif %}" href="{% url 'dashboard:home' %}">
+                <span class="text active">خانه</span>
+                <img class="icon primary ml-10" src="{% static 'assets/img/dashboard/icons/nav/blue-home.svg' %}" alt="" />
+                <img class="icon secondary ml-10" src="{% static 'assets/img/dashboard/icons/nav/white-home.svg' %}"
+                    alt="" />
+            </a>
+        </li>
+        <li class="item">
+            <a class="{% if view.title == 'پشتیبانی' %}active{% endif %}" href="{% url 'dashboard:support' %}">
+                <span class="text">پشتیبانی</span>
+                <img class="icon primary ml-10" src="{% static 'assets/img/dashboard/icons/nav/blue-support.svg' %}"
+                    alt="" />
+                <img class="icon secondary ml-10" src="{% static 'assets/img/dashboard/icons/nav/white-support.svg' %}"
+                    alt="" />
+            </a>
+        </li>
+        <li class="item">
+            <a class="{% if view.title == 'تنظیمات' %}active{% endif %}" href="{% url 'dashboard:settings' %}">
+                <span class="text">تنظیمات</span>
+                <img class="icon primary ml-10" src="{% static 'assets/img/dashboard/icons/nav/blue-setting.svg' %}"
+                    alt="" />
+                <img class="icon secondary ml-10" src="{% static 'assets/img/dashboard/icons/nav/white-setting.svg' %}"
+                    alt="" />
+            </a>
+        </li>
+        <li class="item">
+            <a class="{% if view.title == 'تغییر رمز عبور' %}active{% endif %}" href="{% url 'dashboard:reset_password' %}">
+                <span class="text">تغییر رمز عبور</span>
+                <img class="icon primary ml-10" src="{% static 'assets/img/dashboard/icons/nav/blue-lock.svg' %}" alt="" />
+                <img class="icon secondary ml-10" src="{% static 'assets/img/dashboard/icons/nav/white-lock.svg' %}"
+                    alt="" />
+            </a>
+        </li>
+        <li class="item">
+            <a class="{% if view.title == 'مسیرهای منتخب' %}active{% endif %}" href="{% url 'dashboard:favorite_routes' %}">
+                <span class="text">مسیرهای منتخب</span>
+                <img class="icon primary ml-10" src="{% static 'assets/img/dashboard/icons/nav/blue-way.svg' %}" alt="" />
+                <img class="icon secondary ml-10" src="{% static 'assets/img/dashboard/icons/nav/white-way.svg' %}" alt="" />
+            </a>
+        </li>
+        <li class="item">
+            <a class="{% if view.title == 'علاقه مندی های من' %}active{% endif %}" href="{% url 'dashboard:favorites' %}">
+                <span class="text">علاقه مندی های من</span>
+                <img class="icon primary ml-10" src="{% static 'assets/img/dashboard/icons/nav/blue-interest.svg' %}" alt="" />
+                <img class="icon secondary ml-10" src="{% static 'assets/img/dashboard/icons/nav/white-interest.svg' %}" alt="" />
+            </a>
+        </li>
+        <li class="item">
+            <a class="{% if view.title == 'اعلان ها' %}active{% endif %}" href="{% url 'dashboard:notifications' %}">
+                <span class="text">اعلان ها</span>
+                <img class="icon primary ml-10" src="{% static 'assets/img/dashboard/icons/nav/blue-bells.svg' %}" alt="" />
+                <img class="icon secondary ml-10" src="{% static 'assets/img/dashboard/icons/nav/white-bells.svg' %}" alt="" />
+            </a>
+        </li>
+    </ul>
+</aside>

@@ -1,0 +1,129 @@
+nav.dashboard {
+    font-family: $font_std_light;
+}
+
+.navbar-default.dashboard {
+    background-color: $primary;
+    border-color: $primary;
+    border-radius: 0;
+}
+
+.navbar-default.dashboard .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #fff;
+}
+
+.dashboard .navbar-brand {
+    background-color: $white;
+    color: $white;
+    a {
+        color: $white;
+        border: 1px solid $white;
+
+        &:hover {
+            color: $white;
+        }
+    }
+}
+
+.navbar-default.dashboard .navbar-brand {
+    color: $white;
+    border: 1px solid $white;
+
+    &:hover {
+        background-color: $white;
+        color: $white;
+        cursor: default;
+    }
+}
+
+.navbar-default.dashboard .navbar-nav>li>a {
+    color: $white;
+    transition: .4s;
+}
+
+
+.has-icon {
+    display: inline-block;
+
+    &:hover {
+        .icon {
+            color: $warning;
+        }
+    }
+    .icon {
+        width: 20px;
+    }
+}
+
+.navbar-default.dashboard .navbar-nav>.active>a,
+.navbar-default.dashboard .navbar-nav>.active>a:focus,
+.navbar-default.dashboard .navbar-nav>.active>a:hover {
+    color: $yellow-light;
+    background-color: transparent;
+}
+
+.navbar-default.dashboard .navbar-nav>li>a:focus,
+.navbar-default.dashboard .navbar-nav>li>a:hover {
+    color: $yellow-light;
+    background-color: transparent;
+}
+
+.navbar-default.dashboard .navbar-collapse, .navbar-default .navbar-form {
+    border-color: $primary;
+}
+
+.s-nav {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    padding: 10px;
+
+    a {
+        transition-duration: .4s;
+        color: $white;
+
+        &:hover {
+            text-decoration: none;
+            color: $warning;
+        }
+    }
+
+    ul {
+        flex-basis: 100%;
+        text-align: center;
+        margin: 0;
+
+        .search {
+            flex-grow: 2;
+
+            input {
+                background-color: $info;
+                border: none;
+                border-radius: 5px;
+                outline: none;
+                padding: 10px;
+                width: 100%;
+
+                &::placeholder {
+                    color: $white;
+                }
+            }
+        }
+
+        &.right {
+            text-align: right;
+        }
+
+        &.left {
+            text-align: left;
+        }
+
+        img {
+            width: 40px;
+        }
+    }
+
+
+
+}

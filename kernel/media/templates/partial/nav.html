@@ -1,0 +1,40 @@
+{% load static %}
+<header>
+    <nav class="navbar navbar-default bootsnav site">
+        <div class="container">
+            <!-- Start Header Navigation -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#brand"><img src="{% static 'assets/' %}/img/logo.svg" class="logo" alt=""></a>
+            </div>
+            <!-- End Header Navigation -->
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-menu">
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li><a class="hvr-grow" href="{% url 'site:home' %}">خانه</a></li>
+                    <li><a class="hvr-grow" href="{% url 'dashboard:home' %}">سمارو</a></li>
+                    <li><a class="hvr-grow" href="#">قوانین</a></li>
+                    <li><a class="hvr-grow" href="#">ثبت سفر</a></li>
+                    <!-- <li class="dropdown relative">
+                        <a href="#" class="dropdown-toggle hvr-grow" data-toggle="dropdown">
+                            ثبت سفر
+                            <i class="fas fa-angle-down dropdown-angle"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                            <li><a href="#">Custom Menu</a></li>
+                        </ul>
+                    </li> -->
+                    <li><a class="hvr-grow" href="#">ورود</a></li>
+                    <li><a class="hvr-grow" href="#">ثبت نام</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div>
+    </nav>
+</header>

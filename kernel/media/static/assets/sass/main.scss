@@ -1,0 +1,44 @@
+// permanents
+@import 'permanent/sizes.scss';
+@import 'permanent/fonts.scss';
+@import 'permanent/mixin.scss';
+@import 'permanent/colors.scss';
+@import 'permanent/buttons.scss';
+
+// PUBLIC Styles
+
+@include space-helper();
+
+body {
+    color: $dark;
+    font-family: $font_std_light;
+    background-color: $light;
+    font-size: $font-size-normal;
+}
+
+.relative {
+    position: relative;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.display-flex {
+    display: flex;
+    flex-direction: row;
+}
+
+// Partial Styles
+@import 'partials/forms.scss';
+@import 'partials/nav.scss';
+@import 'partials/footer.scss';
+
+
+// Specific Styles
+@import 'pages/landing.scss';
+@import 'pages/registration.scss';
+
+
+// Dashboard
+@import './dashboard/structure.scss';

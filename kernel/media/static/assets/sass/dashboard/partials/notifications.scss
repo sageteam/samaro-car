@@ -1,0 +1,20 @@
+.panel-info>.panel-heading {
+    color: $white;
+    background-color: $info;
+    border-color: $info;
+}
+
+.panel-info {
+    border-color: $info;
+}
+
+
+.panel-danger>.panel-heading {
+    color: $white;
+    background-color: $danger;
+    border-color: $danger;
+}
+
+.panel-danger {
+    border-color: $danger;
+}
