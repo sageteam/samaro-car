@@ -50,7 +50,7 @@ class Bank(models.Model):
 class Feature(models.Model):
     """Model definition for Features."""
 
-    name = models.CharField(max_length = 128, verbose_name = _('name'))
+    name = models.CharField(max_length = 128, unique = True, verbose_name = _('name'))
     status = models.BooleanField(default=False, verbose_name=_('status'))
 
     created = models.DateTimeField(auto_now_add=True)
@@ -73,9 +73,9 @@ class Setting(models.Model):
         ('t', _('ticket')),
     )
     get_message_from = models.CharField(max_length = 1, choices = prefered_message, default = 'e', verbose_name=_('get message from'))
-    subscribe = models.BooleanField(verbose_name=_('subscribe'))
-    email_transaction = models.BooleanField(verbose_name=_('email transaction'))
-    email_trip_info = models.BooleanField(verbose_name=_('email trip info'))
+    subscribe = models.BooleanField(verbose_name=_('subscribe'), default = 0)
+    email_transaction = models.BooleanField(verbose_name=_('email transaction'), default = 0)
+    email_trip_info = models.BooleanField(verbose_name=_('email trip info'), default = 0)
 
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
@@ -85,7 +85,11 @@ class Favorites(models.Model):
     title = models.CharField(max_length = 128, verbose_name = _('title'))
     status = models.BooleanField(default = False, verbose_name = _('status'))
 
+    class Meta:
+        unique_together = ('user', 'title')
+
 class Notifications(models.Model):
+    user = models.ForeignKey(User, on_delete = models.CASCADE, related_name='notifications', verbose_name=_('User'))
     point_type = (
         ('p', _('positive')),
         ('t', _('negative')),

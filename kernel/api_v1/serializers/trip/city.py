@@ -1,18 +1,11 @@
 from trip.models import City
 from api_v1.serializers.trip.region import RegionSerializer
 from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import SlugRelatedField
+
 
 class CitySerializer(ModelSerializer):
-    regions = RegionSerializer(required = True, many = True)
-
+    regions = SlugRelatedField(many = True, read_only = True, slug_field='name')
     class Meta:
         model = City
-        fields = ('name', 'regions',)
-        read_only_fields = ('regions',)
-
-class CityMainSerializer(ModelSerializer):
-
-    class Meta:
-        model = City
-        fields = ('id', 'name', )
-        
+        fields = ('pk', 'name', 'regions')

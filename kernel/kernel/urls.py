@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path, include
+from rest_framework.documentation import include_docs_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^api-auth/', include('rest_framework.urls')),
+    re_path(r'^docs/', include_docs_urls(title='Samaro API Docs', public = False), name = 'docs'),
     re_path(r'^', include('website.urls')),
     path('api/v1/', include('api_v1.urls')),
 ]

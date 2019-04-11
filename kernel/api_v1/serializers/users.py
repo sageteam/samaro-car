@@ -5,13 +5,21 @@ from users.models import GeneralProfile
 from users.models import Driver
 from users.models import Setting
 from users.models import Notifications
+from users.models import Favorites
 from users.models import Passenger
 from users.models import Transmit
 from users.models import Machine
+from ticket.models import TicketEnvelope
+from ticket.models import TicketLetter
 
-
+from rest_framework.exceptions import NotAcceptable
 from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import SlugRelatedField
 
+class UserNotificationsSerializer(ModelSerializer):
+    class Meta:
+        model = Notifications
+        fields = ('id', 'user', 'point_type', 'point', 'summary', 'seen')
 
 class MachineFeaturesSerializer(ModelSerializer):
     class Meta:
@@ -19,7 +27,7 @@ class MachineFeaturesSerializer(ModelSerializer):
         fields = ('name', 'status')
 
 class MachineSerializer(ModelSerializer):
-    features = MachineFeaturesSerializer(required = True, many = True)
+    features = SlugRelatedField(queryset = Feature.objects.all(), many = True, slug_field = 'name')
 
     class Meta:
         model = Machine
@@ -86,19 +94,63 @@ class UserSettingSerializer(ModelSerializer):
     
     class Meta:
         model = Setting
-        fields = ('__all__')
+        fields = ('get_message_from', 'subscribe', 'email_transaction', 'email_trip_info')
+
+class UserFavoritesSerializer(ModelSerializer):
+    
+    class Meta:
+        model = Favorites
+        fields = ('title', 'status', 'user')
 
 class UserSerializer(ModelSerializer):
     profile = UserProfileSerializer(required = True)
     setting = UserSettingSerializer(required = True)
+    favorites = UserFavoritesSerializer(required = True, many = True)
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email', 'profile', 'favorites', 'setting')
+        fields = ('id', 'first_name', 'last_name', 'email', 'profile', 'favorites', 'setting')
 
 class UserMainSerializer(ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email', 'password', 'id')
+        fields = ('id', 'first_name', 'last_name', 'email')
 
+class UserRegisterSerializer(ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ('id', 'email', 'first_name', 'last_name', 'password')
+        extra_kwargs = {'password': {'write_only': True}}
+    
+    def create(self, validate_data):
+        try:
+            first_name = validate_data['first_name']
+            last_name = validate_data['last_name']
+        except KeyError:
+            raise NotAcceptable(detail = 'You need to fill all parameters.')
+        user = User(
+            email=validate_data['email'],
+            first_name=validate_data['first_name'],
+            last_name=validate_data['last_name']
+        )
+
+        user.set_password(validate_data['password'])
+        user.save()
+
+        return user
+
+class TicketSerializer(ModelSerializer):
+
+    class Meta:
+        model = TicketEnvelope
+        fields = ('sku', 'subject', 'priority', 'status', 'department', 'trip', 'passenger', 'driver')
+        read_only_fields = ('sku',)
+
+class TicketLetterSerializer(ModelSerializer):
+
+    class Meta:
+        model = TicketLetter
+        fields = ('sku', 'ticket', 'message', 'user', 'reply', 'created')
+        read_only_fields = ('sku', 'created')

@@ -1,3 +1,5 @@
+from rest_framework.authtoken.models import Token
+
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
@@ -9,6 +11,8 @@ from users.models import Driver
 from users.models import Passenger
 from users.models import Transmit
 from users.models import Setting
+from users.models import Favorites
+from users.models import Notifications
 from users.submodels.detail import Machine
 from users.submodels.detail import Bank
 
@@ -21,15 +25,20 @@ def create_user_profile(sender, instance, created, **kwargs):
         # other profiles
         Passenger.objects.create(profile=instance.profile)
         Transmit.objects.create(profile=instance.profile)
-        Setting.objects.create(profile=instance.profile)
+        Setting.objects.create(user=instance)
+        Favorites.objects.create(user=instance)
+        Notifications.objects.create(user=instance)
+
 
         # Driver info profile
         Driver.objects.create(profile=instance.profile)
         Machine.objects.create(driver = instance.profile.driver)
         Bank.objects.create(driver = instance.profile.driver)
 
-        # user setting
-        Setting.objects.create(user = instance)
+        Token.objects.create(user=instance)
+
+        #TODO: Send Email to user for activation
+
 
     else:
         instance.profile.save()
@@ -39,3 +48,4 @@ def create_user_profile(sender, instance, created, **kwargs):
         instance.profile.passenger.save()
         instance.profile.transmit.save()
         instance.setting.save()
+        # instance.notifications.save()

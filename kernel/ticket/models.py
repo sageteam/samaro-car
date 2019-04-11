@@ -38,15 +38,13 @@ class TicketEnvelope(models.Model):
         verbose_name_plural = _('Tickets')
         ordering = ['-created']
 
-
-
 class TicketLetter(models.Model):
     sku = models.CharField(max_length = 15, editable = False, primary_key = True)
     
     message = models.TextField(verbose_name=_('Message'))
-
-    user = models.ForeignKey(User, on_delete = models.SET_NULL, null = True, related_name='letter_user', verbose_name=_('letter user'))
-    reply = models.ForeignKey('TicketEnvelope', on_delete = models.CASCADE, related_name='tickets', verbose_name=_('reply'))
+    ticket = models.ForeignKey('TicketEnvelope', on_delete = models.CASCADE, related_name='messages', verbose_name = _('Ticket'))
+    user = models.ForeignKey(User, on_delete = models.SET_NULL, null = True, related_name='letter_user', verbose_name=_('Letter user'))
+    reply = models.ForeignKey('TicketEnvelope', on_delete = models.CASCADE, null = True, related_name='letter_reply', verbose_name=_('Reply'))
 
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)

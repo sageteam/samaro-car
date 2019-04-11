@@ -66,6 +66,7 @@ class Distance(models.Model):
         if not self.road:
             self.road = f"{self.city1}-{self.city2}"
 
+        
         super(Distance, self).save(*args, **kwargs)
 
     def __str__(self):
