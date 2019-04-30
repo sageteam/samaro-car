@@ -22,5 +22,8 @@ urlpatterns = [
     re_path(r'^api-auth/', include('rest_framework.urls')),
     re_path(r'^docs/', include_docs_urls(title='Samaro API Docs', public = False), name = 'docs'),
     re_path(r'^', include('website.urls')),
+    re_path(r'^dashboard/', include('dashboard.urls')),
+    re_path(r'^', include('users.urls')),
+    re_path(r'^', include('trip.urls')),
     path('api/v1/', include('api_v1.urls')),
 ]

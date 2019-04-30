@@ -1,0 +1,10 @@
+<h1>hello</h1>
+<h2>{{ self.user }}</h2>
+<form action={% url 'profile-transmit' %} method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+
+    {{ general_form.as_p }}
+    {{ basic_form.as_p}}
+    {{ transmit_form.as_p }}
+    <button type="submit">submit</button>
+</form>    

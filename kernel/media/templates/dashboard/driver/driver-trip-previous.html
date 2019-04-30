@@ -1,0 +1,81 @@
+{% extends 'shared/dashboard.html' %}
+{% load static %}
+{% load tags %}
+{% block body %}
+
+<div class="col-md-12">
+    <div class="mt-35 panel-box">
+        <div class="container">
+            <div class="mr-40">
+                <h2 class="title-md">سفرهای من</h2>
+                <h4>سفرهایی که در گذشته داشته اید.</h4>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover table-persian table-primary mt-50">
+                    <thead>
+                        <tr>
+                            <th class="text-center">مبدا</th>
+                            <th class="text-center">مقصد</th>
+                            <th class="text-center">تاریخ</th>
+                            <th class="text-center">جنسیت</th>
+                            <th class="text-center">تعداد</th>
+                            <th class="text-center">ساعت حرکت</th>
+                            <th class="text-center">میزان بار</th>
+                            <th class="text-center">نظرسنجی</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if previous_trips %}
+                            {% for trip in previous_trips %}
+                                <tr>
+                                    <td>{{ trip.origin }}</td>
+                                    <td>{{ trip.destination }}</td>
+                                    <td>{{ trip.start_time|jalali_date }}</td>
+                                    <td>{{ trip.get_gender_display }}</td>
+                                    <td>{{ trip.seat|length }}</td>
+                                    <td>{{ trip.start_time|jalali_time }}</td>
+                                    <td>
+                                        {% if trip.item_capacity %}
+                                            {{ trip.item_capacity }}
+                                        {% else %}
+                                            -
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                                <tr>
+                                    <td colspan="8">
+                                    <div class="alert alert-info">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                                        سفری تا کنون نداشته اید
+                                    </div>
+                                    </td>
+                                </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row mb-75">
+                <div class="col-md-3">
+                    <a href="{% url 'dashboard:driver-trip-active' %}" class="btn btn-large btn-block btn-default btn-big mb-30">سفرهای کنونی</a>
+                </div>
+                <div class="col-md-3">
+                    <a href="{% url 'dashboard:driver-trip-aborted' %}" class="btn btn-large btn-block btn-default btn-big mb-30">سفرهای
+                        لغو شده</a>
+                </div>
+                
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+
+{% endblock %}

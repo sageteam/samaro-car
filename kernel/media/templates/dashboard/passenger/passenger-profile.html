@@ -1,0 +1,85 @@
+{% extends 'shared/dashboard.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block body %}
+
+<div class="col-md-12">
+    <div class="mt-35 panel-box">
+        <h2 class="title">اطلاعات کاربری همسفر</h2>
+
+        {% if basic_form.non_field_errors %}
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>خطا: </strong> {{ basic_form.non_field_errors }}
+            </div>
+        {% endif %}
+        {% if general_form.non_field_errors %}
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>خطا</strong> {{ general_form.non_field_errors }}
+            </div>
+        {% endif %}
+        {% if passenger_form.non_field_errors %}
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>خطا</strong> {{ passenger_form.non_field_errors }}
+            </div>
+        {% endif %}
+
+
+        
+        <form action={% url 'dashboard:passenger-profile' %} method="post" enctype="multipart/form-data" class="mt-25 form-global" novalidate>
+            {% csrf_token %}
+            <div class="col-md-4">
+                {% for field in basic_form %}
+                    <div class="form-row mt-15">
+                        <label class="required mr-5 mb-15" for="id_{{ field.name }}">{{ field.label }} <img src="{% static 'assets/img/icons/form/star-01.svg' %}" class="icn-sm" /></label>
+                        {% if field.errors %}
+                            {% render_field field data-toggle="tooltip" class="txtb has_error" data-original-title=field.help_text%}
+                        {% else %}
+                            {% render_field field data-toggle="tooltip" class="txtb" data-original-title=field.help_text %}
+                        {% endif %}
+                        {% for error in field.errors %}
+                            <p class="error-tip error"><i class="fa fa-times"></i> {{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+
+                {% for field in general_form %}
+                    <div class="form-row mt-15">
+                        <label class="required mr-5 mb-15" for="id_{{ field.name }}">{{ field.label }} <img src="{% static 'assets/img/icons/form/star-01.svg' %}" class="icn-sm" /></label>
+                        {% if field.errors %}
+                            {% render_field field data-toggle="tooltip" class="txtb has_error" data-original-title=field.help_text%}
+                        {% else %}
+                            {% render_field field data-toggle="tooltip" class="txtb" data-original-title=field.help_text %}
+                        {% endif %}
+                        {% for error in field.errors %}
+                            <p class="error-tip error"><i class="fa fa-times"></i> {{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col-md-4">
+                {% for field in passenger_form %}
+                    <div class="form-row mt-15">
+                        <label class="required mr-5 mb-15" for="id_{{ field.name }}">{{ field.label }} <img src="{% static 'assets/img/icons/form/star-01.svg' %}" class="icn-sm" /></label>
+                        {% if field.errors %}
+                            {% render_field field data-toggle="tooltip" class="txtb has_error" data-original-title=field.help_text%}
+                        {% else %}
+                            {% render_field field data-toggle="tooltip" class="txtb" data-original-title=field.help_text %}
+                        {% endif %}
+                        {% for error in field.errors %}
+                            <p class="error-tip error"><i class="fa fa-times"></i> {{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+                <div class="mt-30"></div>
+                <button type="submit" class="btn btn-primary btn-md btn-block">ذخیره</button>
+            </div>
+                
+        </form>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+{% endblock %}

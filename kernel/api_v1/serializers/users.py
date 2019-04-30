@@ -45,25 +45,29 @@ class UserProfileDriverSerializer(ModelSerializer):
 
     class Meta:
         model = Driver
-        fields = ('job', 'job_place', 'emergency_number', 'machine', 'bank')
+        fields = ('job', 'score', 'job_place', 'emergency_number', 'machine', 'bank')
+        read_only_fields = ('score',)
 
 class UserProfileDriverMainSerializer(ModelSerializer):
 
     class Meta:
         model = Driver
-        fields = ('job', 'job_place', 'emergency_number')
+        fields = ('job', 'score', 'job_place', 'emergency_number')
+        read_only_fields = ('score',)
 
 class UserProfilePassengerMainSerializer(ModelSerializer):
 
     class Meta:
         model = Passenger
-        fields = ('job', 'emergency_number')
+        fields = ('score', 'job', 'emergency_number')
+        read_only_fields = ('score',)
 
 class UserProfileTransmitMainSerializer(ModelSerializer):
 
     class Meta:
         model = Transmit
-        fields = ('job', 'emergency_number')
+        fields = ('score', 'job', 'emergency_number')
+        read_only_fields = ('score',)
 
 class UserProfileTransmitSerializer(ModelSerializer):
     class Meta:
@@ -73,7 +77,8 @@ class UserProfileTransmitSerializer(ModelSerializer):
 class UserProfilePassengerSerializer(ModelSerializer):
     class Meta:
         model = Passenger
-        fields = ('job', 'emergency_number')
+        fields = ('score', 'job', 'emergency_number')
+        read_only_fields = ('score',)
 
 class UserProfileSerializer(ModelSerializer):
     driver = UserProfileDriverSerializer(required = True)
@@ -82,13 +87,15 @@ class UserProfileSerializer(ModelSerializer):
     
     class Meta:
         model = GeneralProfile
-        fields = ('gender', 'birth_date', 'national_code', 'tel', 'mobile', 'adr', 'postal_code', 'pic', 'national_code_pic', 'edu_degree', 'about', 'driver', 'transmit', 'passenger')
+        fields = ('gender', 'credit', 'birth_date', 'national_code', 'tel', 'mobile', 'adr', 'postal_code', 'pic', 'national_code_pic', 'edu_degree', 'about', 'driver', 'transmit', 'passenger')
+        read_only_fields = ('credit',)
 
 class UserProfileMainSerializer(ModelSerializer):
     
     class Meta:
         model = GeneralProfile
-        fields = ('gender', 'birth_date', 'national_code', 'tel', 'mobile', 'adr', 'postal_code', 'pic', 'national_code_pic', 'edu_degree', 'about')
+        fields = ('gender', 'credit', 'birth_date', 'national_code', 'tel', 'mobile', 'adr', 'postal_code', 'pic', 'national_code_pic', 'edu_degree', 'about')
+        read_only_fields = ('credit',)
 
 class UserSettingSerializer(ModelSerializer):
     

@@ -31,25 +31,21 @@ def distance_model_post_save_receiver(sender, instance, created, *args, **kwargs
 
 @receiver(post_save, sender=Trip)
 def create_trip_post_save(sender, instance, created, *args, **kwargs):
-    if created:
-        # create 4 seats for each trip
-        Seat.objects.create(trip = instance, position = 1, state = 1)
-        Seat.objects.create(trip = instance, position = 2, state = 1)
-        Seat.objects.create(trip = instance, position = 3, state = 1)
-        Seat.objects.create(trip = instance, position = 4, state = 1)
+    pass
     
  
 
 @receiver(pre_save, sender=Trip)
 def create_trip_pre_save(sender, instance, *args, **kwargs):
     # If is Post HTTP Method
+    # import pdb; pdb.set_trace()
     if not instance.pk:
         if Trip.objects.has_active_trip(instance.driver):
             raise NotAcceptable(detail = 'The driver has a active trip.')
-    if instance.pk:
-        trip = Trip.objects.get(pk = instance.pk)
-        if not instance.driver == trip.driver:
-            raise NotAcceptable(detail = 'You can\'t change the driver.')
+    # if instance.pk:
+    #     trip = Trip.objects.get(pk = instance.pk)
+    #     if not instance.driver == trip.driver:
+    #         raise NotAcceptable(detail = 'You can\'t change the driver.')
  
 
 @receiver(post_save, sender=Seat)

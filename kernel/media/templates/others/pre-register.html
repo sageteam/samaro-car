@@ -16,6 +16,14 @@
 </head>
 
 <body>
+
+    {% if user.is_authenticated %}
+        {{ user.email }}
+    {% endif %}
+
+    {% if user.is_anonymous %}
+        anonymous
+    {% endif %}
     <div class="form-body">
         <div class="row">
             <div class="img-holder on-top">

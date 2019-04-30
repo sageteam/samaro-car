@@ -1,0 +1,40 @@
+<h1>hello</h1>
+<h2>{{ self.user }}</h2>
+<form action={% url 'profile-passenger' %} method="post" enctype="multipart/form-data" novalidate id="passenger-form">
+    {% csrf_token %}
+
+    {{ general_form.as_p }}
+    {{ basic_form.as_p}}
+    {{ passenger_form.as_p }}
+    <button type="submit">submit</button>
+</form>    
+
+<div id="results"></div>
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script>
+
+$('#passenger-form').on('submit', function(event){
+    event.preventDefault();
+    var form = $(this).closest("form");
+    console.log('form is going to submit')
+    $.ajax({
+        url: form.attr("action"),
+        data: form.serialize(),
+        type: "POST",
+        dataType: 'json',
+        success: function(data){
+            if (data.is_taken){
+                alert(data.error_message)
+            } else {
+                alert(data.error_message)
+            }
+        },
+        error : function(xhr,errmsg,err) {
+            $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+                " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+        }
+    });
+});
+</script>

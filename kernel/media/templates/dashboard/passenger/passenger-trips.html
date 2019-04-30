@@ -1,0 +1,448 @@
+{% extends 'shared/dashboard.html' %}
+{% load static %}
+{% load tags %}
+{% block body %}
+
+<div class="col-md-12">
+    <hr class="line mt-35 mb-35" />
+    <div class="mt-35 panel-box">
+        <div class="col-md-12">
+            <h2 class="title fa-num">30 سفر ثبت شده است</h2>
+        </div>
+        <div class="clearfix"></div>
+        <div class="mt-15">
+            <div class="col-md-3 col-sm-4 col-xs-4">
+                <span class="form-row">
+                    <div class="choosebox-wrapper">
+                        <input class="chooseBox" id="origin" type="text" placeholder="تهران..." autocomplete="off" />
+                        <div id="chb-origin" class="choosebox-content">
+                            <a class="chb-opt" href="#esfahan">اصفهان</a>
+                            <a class="chb-opt" href="#chalus">چالوس</a>
+                            <a class="chb-opt" href="#tehran">تهران</a>
+                            <a class="chb-opt" href="#nowshahr">نوشهر</a>
+                        </div>
+                    </div>
+                </span>
+            </div>
+            <div class="col-md-9">
+                <div class="col-md-3 col-sm-4 col-xs-4">
+                    <span class="form-row">
+                        <div class="choosebox-wrapper">
+                            <input class="chooseBox" id="origin" type="text" placeholder="تهران..."
+                                autocomplete="off" />
+                            <div id="chb-origin" class="choosebox-content">
+                                <a class="chb-opt" href="#esfahan">اصفهان</a>
+                                <a class="chb-opt" href="#chalus">چالوس</a>
+                                <a class="chb-opt" href="#tehran">تهران</a>
+                                <a class="chb-opt" href="#nowshahr">نوشهر</a>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-4">
+                    <span class="form-row">
+                        <div class="choosebox-wrapper">
+                            <input class="chooseBox" id="origin" type="text" placeholder="تهران..."
+                                autocomplete="off" />
+                            <div id="chb-origin" class="choosebox-content">
+                                <a class="chb-opt" href="#esfahan">اصفهان</a>
+                                <a class="chb-opt" href="#chalus">چالوس</a>
+                                <a class="chb-opt" href="#tehran">تهران</a>
+                                <a class="chb-opt" href="#nowshahr">نوشهر</a>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-4">
+                    <span class="form-row">
+                        <div class="choosebox-wrapper">
+                            <input class="chooseBox" id="origin" type="text" placeholder="تهران..."
+                                autocomplete="off" />
+                            <div id="chb-origin" class="choosebox-content">
+                                <a class="chb-opt" href="#esfahan">اصفهان</a>
+                                <a class="chb-opt" href="#chalus">چالوس</a>
+                                <a class="chb-opt" href="#tehran">تهران</a>
+                                <a class="chb-opt" href="#nowshahr">نوشهر</a>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+                <div class="col-md-3 col-sm-12 col-xs-12">
+                    <button class="btn btn-md btn-block btn-primary btn-md">جستجو</button>
+                </div>
+            </div>
+        </div>
+        <!-- Filter -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="filter-box mt-40">
+                <div class="text-center">
+                    <h4>ساعت حرکت</h4>
+                    <div class="underline"></div>
+                </div>
+                <ul class="list-unstyled mt-15">
+                    <li style="position: relative;">
+                        <label class="checkmark-wrapper">صبح
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                    <li style="position: relative;">
+                        <label class="checkmark-wrapper">ظهر
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                    <li style="position: relative;">
+                        <label class="checkmark-wrapper">شب
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                    <li style="position: relative;">
+                        <label class="checkmark-wrapper">بامداد
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="filter-box mt-40">
+                <div class="text-center">
+                    <h4>صندلی خالی</h4>
+                    <div class="underline"></div>
+                </div>
+                <ul class="list-unstyled mt-15">
+                    <li style="width: 10px;" style="position: relative;">
+
+                    </li>
+                    <li style="position: relative;">
+                        <label class="checkmark-wrapper">
+                            <img style="width: 30px;" src="{% static 'assets/img/icons/icon-chair.svg' %}"
+                                alt="یک نفر" />
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                    <li style="position: relative;">
+                        <label class="checkmark-wrapper">
+                            <img style="width: 30px;" src="{% static 'assets/img/icons/icon-chair.svg' %}"
+                                alt="یک نفر" />
+                            <img style="width: 30px;" src="{% static 'assets/img/icons/icon-chair.svg' %}"
+                                alt="یک نفر" />
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                    <li style="position: relative;">
+                        <label class="checkmark-wrapper">
+                            <img style="width: 30px;" src="{% static 'assets/img/icons/icon-chair.svg' %}"
+                                alt="یک نفر" />
+                            <img style="width: 30px;" src="{% static 'assets/img/icons/icon-chair.svg' %}"
+                                alt="یک نفر" />
+                            <img style="width: 30px;" src="{% static 'assets/img/icons/icon-chair.svg' %}"
+                                alt="یک نفر" />
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                    <li style="position: relative;">
+                        <label class="checkmark-wrapper">
+                            <img style="width: 30px;" src="{% static 'assets/img/icons/icon-chair.svg' %}"
+                                alt="یک نفر" />
+                            <img style="width: 30px;" src="{% static 'assets/img/icons/icon-chair.svg' %}"
+                                alt="یک نفر" />
+                            <img style="width: 30px;" src="{% static 'assets/img/icons/icon-chair.svg' %}"
+                                alt="یک نفر" />
+                            <img style="width: 30px;" src="{% static 'assets/img/icons/icon-chair.svg' %}"
+                                alt="یک نفر" />
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="filter-box mt-40">
+                <div class="text-center">
+                    <h4>جنسیت مسافر</h4>
+                    <div class="underline"></div>
+                </div>
+                <ul class="list-unstyled mt-15">
+                    <li style="position: relative;">
+                        <div class="radio-container">
+                            <input type="radio" name="sex" id="male" />
+                            <label for="male"><img class="img-responsive"
+                                    src="{% static 'assets/img/icons/icon-human.svg' %}" alt="مرد"></label>
+                            <input type="radio" checked="checked" name="sex" id="female" />
+                            <label for="female"><img class="img-responsive"
+                                    src="{% static '' %}assets/img/icons/icon-human-woman.svg" alt="زن"></label>
+                            <input type="radio" checked="checked" name="sex" id="male_female" />
+                            <label for="male_female">
+                                <img src="{% static 'assets/img/icons/icon-human-woman.svg' %}" alt="زن" />
+                                <img src="{% static 'assets/img/icons/icon-human.svg' %}" alt="زن" />
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="filter-box mt-40">
+                <div class="text-center">
+                    <h4>میزان بار</h4>
+                    <div class="underline"></div>
+                </div>
+                <ul class="list-unstyled mt-15">
+                    <li style="position: relative;">
+                        <div class="radio-container radio-weights">
+                            <input type="radio" name="weights" id="all_weights" />
+                            <label for="all_weights"><span>همه</span></label>
+                            <input type="radio" checked="checked" name="weights" id="small_weight" />
+                            <label for="small_weight"><img
+                                    src="{% static 'assets/img/icons/icon-breifcase-01.svg' %}"><span
+                                    class="fa-num mr-40">( 0 تا 12 کیلوگرم )</span></label>
+                            <input type="radio" checked="checked" name="weights" id="medium_weight" />
+                            <label for="medium_weight"><img src="{% static 'assets/img/icons/icon-briefcase.svg' %}"
+                                    alt="مرد"><span class="fa-num mr-40">(12 تا 24 کیلوگرم)</span></label>
+                            <input type="radio" checked="checked" name="weights" id="big_weight" />
+                            <label for="big_weight"><img src="{% static 'assets/img/icons/icon-briefcase-02.svg' %}"
+                                    alt="مرد"><span class="fa-num mr-40">( 24 تا 30 کیلوگرم )</span></label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="filter-box mt-40">
+                <div class="text-center">
+                    <h4>میزان بار</h4>
+                    <div class="underline"></div>
+                </div>
+                <ul class="list-unstyled mt-15">
+                    <li style="position: relative;">
+                        <div class="radio-container">
+                            <input type="radio" checked="checked" name="discount" id="all" />
+                            <label for="all"><span>همه</span></label>
+                            <input type="radio" checked="checked" name="discount" id="twenty_percent" />
+                            <label for="twenty_percent"><span>20%</span></label>
+                            <input type="radio" checked="checked" name="discount" id="thirty_percent" />
+                            <label for="thirty_percent"><span>30%</span></label>
+                            <input type="radio" checked="checked" name="discount" id="fifty_percent" />
+                            <label for="fifty_percent"><span>50%</span></label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Cards -->
+
+        <div class="col-md-9 col-sm-6 col-xs-12">
+            {% for trip in trips %}
+            <div class="cards mt-40">
+                <div class="card mt-20">
+                    <div class="header">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-7 col-xs-8">
+                                <div class="profile mr-15">
+                                    <div class="col-md-12 hidden-sm hidden-xs">
+                                        <div class="profile-pic">
+                                            <img class="img-responsive"
+                                                src="{% static 'assets/img/profile/sepehr-akbarzadeh.jpg' %}"
+                                                alt="{{ trip.driver.user.first_name }} {{ trip.driver.user.last_name }}" />
+                                        </div>
+                                    </div>
+                                    <div class="profile-info">
+                                        <div class="name">
+                                            {{ trip.driver }}
+                                        </div>
+                                        <!-- <div class="rank mt-10">
+                                                <ul class="list-unstyled list-inline">
+                                                    <li class="star"><img class="img-responsive"
+                                                            src="{% static 'assets/img/icons/icon-star.svg' %}" alt=""></li>
+                                                    <li class="star"><img class="img-responsive"
+                                                            src="{% static 'assets/img/icons/icon-star.svg' %}" alt=""></li>
+                                                    <li class="star"><img class="img-responsive"
+                                                            src="{% static 'assets/img/icons/icon-star.svg' %}" alt=""></li>
+                                                    <li class="star"><img class="img-responsive"
+                                                            src="{% static 'assets/img/icons/icon-star.svg' %}" alt=""></li>
+                                                    <li class="star"><img class="img-responsive"
+                                                            src="{% static 'assets/img/icons/icon-star.svg' %}" alt=""></li>
+                                                </ul>
+                                            </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7 col-sm-5 col-xs-4">
+                                <div class="car-info">
+                                    <div class="header-center text-center">
+                                        machine name
+                                        {{ trip.driver.machine.name }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-11 col-xs-11">
+                                <div class="header-center price">
+                                    - تومان
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="content">
+                        <div class="row vh-20">
+                            <div class="col-md-5 col-sm-12 col-xs-12 h-100">
+                                <div class="route-wrapper">
+                                    <div class="small text-center fa-num w-100">
+                                        <p>1397/24/11</p>
+                                        <div class="route-line"></div>
+                                        <div class="route">
+                                            <ul class="list-unstyled list-inline">
+                                                <li class="origin">{{ trip.origin }}</li>
+                                                <li class="between">
+                                                    <span class="form-row">
+                                                        <div class="choosebox-wrapper">
+                                                            <input style="width: 60%;" class="chooseBox mt-5"
+                                                                id="route_between" type="text" autocomplete="off" />
+                                                            <div id="route_between" class="choosebox-content">
+                                                                <a class="chb-opt" href="#tehran">مرزن
+                                                                    آباد</a>
+                                                                <a class="chb-opt" href="#nowshahr">کجور</a>
+                                                                <a class="chb-opt" href="#chalus">بلوار</a>
+                                                            </div>
+                                                        </div>
+                                                    </span>
+                                                </li>
+                                                <li class="destination">{{ trip.destination }}</li>
+                                            </ul>
+                                            <ul class="list-unstyled list-inline">
+                                                <li class="origin-region">{{ trip.origin_region.name }}</li>
+                                                <li class="destination-region">{{ trip.destination_region.name }}</li>
+                                            </ul>
+                                            <ul class="list-unstyled list-inline">
+                                                <li class="start-time">{{ trip.start_time|jalali_time }}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-6 h-100">
+                                <div class="passenger">
+                                    <ul class="list-inline list-unstyled">
+                                        {% for seat in trip.seat.all reversed %}
+                                            {% if seat.user.profile.gender == 'm' %}
+                                                {% if seat.position == 1 %}
+                                                    <li style="border:1px solid #29b6f6;"><img class="img-responsive"
+                                                        src="" alt=""></li>
+                                                {% else %}
+                                                    <li><img class="img-responsive"
+                                                        src="{% static 'assets/img/icons/icon-human-yellow.svg' %}" alt=""></li>
+                                                {% endif %}
+                                            {% elif seat.user.profile.gender == 'f' %}
+                                                <li><img class="img-responsive"
+                                                    src="{% static 'assets/img/icons/icon-human-woman-yellow.svg' %}"
+                                                    alt=""></li>
+                                            {% else %}
+                                                {% if seat.position == 1%}
+                                                    <li style="border:1px solid #29b6f6;"><img class="img-responsive"
+                                                        src="" alt=""></li>
+                                                {% else %}
+                                                    <li><img class="img-responsive" src="" alt=""></li>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-6 col-xs-6 h-100">
+                                <div class="utility">
+                                    <ul class="list-inline list-unstyled">
+                                        <li><img class="img-responsive"
+                                                src="{% static 'assets/img/icons/icon-fire.svg' %}" alt=""></li>
+                                        <li><img class="img-responsive"
+                                                src="{% static 'assets/img/icons/icon-fan.svg' %}" alt=""></li>
+                                    </ul>
+                                    <ul>
+                                        <li><img class="img-responsive"
+                                                src="{% static 'assets/img/icons/icon-aparat.svg' %}" alt=""></li>
+                                        <li><img class="img-responsive"
+                                                src="{% static 'assets/img/icons/icon-rest.svg' %}" alt=""></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-12 col-xs-12 h-100">
+                                <div class="operation">
+                                    <ul class="list-inline list-unstyled">
+                                        {% if trip.gender == 'm' %}
+                                        <li><img class="img-responsive"
+                                                src="{% static 'assets/img/icons/icon-human-woman.svg' %}" alt=""></li>
+                                        {% elif trip.gender == 'f' %}
+                                        <li><img class="img-responsive"
+                                                src="{% static 'assets/img/icons/icon-human.svg' %}" alt=""></li>
+                                        {% else %}
+                                        <li><img class="img-responsive"
+                                                src="{% static 'assets/img/icons/icon-human-woman.svg' %}" alt=""></li>
+                                        <li><img class="img-responsive"
+                                                src="{% static 'assets/img/icons/icon-human.svg' %}" alt=""></li>
+                                        {% endif %}
+                                        {% if trip.is_dispatcher %}
+                                        <li><img class="img-responsive"
+                                                src="{% static 'assets/img/icons/icon-briefcase.svg' %}" alt=""></li>
+                                        {% endif %}
+                                    </ul>
+                                    <a class="btn btn-info btn-block btn-lg reservationBtn" href="" data-toggle="modal" data-target="reservation">رزرو</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="pagi-wrapper">
+                <div class="pagination">
+                    <div class="default mr-10 pagi-box pagi-box-lg fa-num">1 از 5</div>
+                    <div class="active mr-10 pagi-box pagi-box-center pagi-box-sm"><i class="fa fa-chevron-right"></i>
+                    </div>
+                    <div class="disable mr-10 pagi-box pagi-box-center pagi-box-sm"><i class="fa fa-chevron-left"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- Button trigger modal -->
+
+
+<div class="modal fade" id="reservation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-info modal-header-fixer">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">فرم رزرو</h4>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <!-- Modal Content -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-block btn-primary">باشه</button>
+                    <button type="button" class="btn btn-block btn-primary">باشه</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+<script>
+    $(".reservationBtn").click(function () {
+    $('#reservation').modal('show')
+});
+</script>
+
+{% endblock %}

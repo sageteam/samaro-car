@@ -125,6 +125,6 @@ class UserAdmin(DjangoUserAdmin):
     actions = [make_active, make_deactive]
     ordering = ('email',)
 
-admin.site.site_header = "Samaro University"
-admin.site.site_title = "Samaro University"
-admin.site.index_title = "Welcome to Samaro Conference Portal"
+admin.site.site_header = "Samaro"
+admin.site.site_title = "Samaro"
+admin.site.index_title = "Welcome to Samaro portal"

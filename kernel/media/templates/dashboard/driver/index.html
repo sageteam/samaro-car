@@ -1,0 +1,68 @@
+{% extends 'shared/dashboard.html' %}
+{% load static %}
+{% block body %}
+
+
+<div>
+    <div class="col-md-4">
+        <a href="{% url 'dashboard:driver-profile' %}">
+            <div class="panel-box lg panel-link">
+                <div class="footer footer-right"></div>
+                <img class="img-responsive pic-md"
+                    src="{% static 'assets/img/dashboard/icons/category/profile-user.svg' %}" alt="">
+                <p class="text slim mt-10">اطلاعات کاربری</p>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="{% url 'dashboard:driver-trip-create' %}">
+            <div class="panel-box lg panel-link">
+                <div class="footer footer-center"></div>
+                <img class="img-responsive pic-md" src="{% static 'assets/img/dashboard/icons/category/luggage.svg' %}"
+                    alt="">
+                <p class="text slim mt-10">ثبت سفر توسط راننده</p>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="{% url 'dashboard:driver-trip' %}">
+            <div class="panel-box lg panel-link">
+                <div class="footer footer-left"></div>
+                <img class="img-responsive pic-md"
+                    src="{% static 'assets/img/dashboard/icons/category/briefcase.svg' %}" alt="">
+                <p class="text slim mt-10">لیست سفرها</p>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="mt-35">
+    <a href="{% url 'dashboard:driver-trip-active' %}">
+        <div class="col-md-4">
+            <div class="panel-box lg panel-link">
+                <div class="footer footer-right"></div>
+                <img class="img-responsive pic-md" src="{% static 'assets/img/dashboard/icons/category/my-trips.svg' %}"
+                    alt="">
+                <p class="text slim mt-10">سفرهای من</p>
+            </div>
+        </div>
+    </a>
+    <div class="col-md-4">
+        <div class="panel-box lg panel-link">
+            <div class="footer footer-center"></div>
+            <img class="img-responsive pic-md" src="{% static 'assets/img/dashboard/icons/category/tickets.svg' %}"
+                alt="">
+            <p class="text slim mt-10">تیکت های من</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel-box lg panel-link">
+            <div class="footer footer-left"></div>
+            <img class="img-responsive pic-md" src="{% static 'assets/img/dashboard/icons/category/credit.svg' %}"
+                alt="">
+            <p class="text slim mt-10">اعتبارات</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,124 @@
+{% extends 'shared/dashboard.html' %}
+{% load static %}
+{% load tags %}
+{% load widget_tweaks %}
+
+{% block body %}
+
+<div class="col-md-12">
+    <div class="mt-35 panel-box">
+        <h2 class="title">سفر پیشنهادی</h2>
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>خطا:  </strong> {{ form.non_field_errors }} 
+            </div>
+        {% endif %}
+        {% if messages %}
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        <form action={% url 'dashboard:passenger-trip-create' %} class="mt-25 form-global" method="post" enctype="multipart/form-data"
+            id="passenger-trip" novalidate>
+            {% csrf_token %}
+            <div class="col-md-4">
+                <div class="mb-15">
+                    <span class="form-row">
+                        <label class="mb-15" for="id_{{ form.origin.name }}">{{ form.origin.label }}</label>
+                        <div class="choosebox-wrapper">
+                            {% render_field form.origin class="chooseBox" placeholder="تهران..." autocomplet="off" %}
+                        </div>
+                    </span>
+                </div>
+                <div class="mb-15">
+                    <span class="form-row">
+                        <label class="mb-15"
+                            for="id_{{ form.origin_region.name }}">{{ form.origin_region.label }}</label>
+                        <div class="choosebox-wrapper">
+                            <div class="choosebox-wrapper">
+                                {% render_field form.origin_region class="chooseBox" placeholder="تهران..." autocomplet="off" %}
+                            </div>
+                        </div>
+                    </span>
+                </div>
+                
+            </div>
+            <div class="col-md-4">
+                <div class="mb-15">
+                    <span class="form-row">
+                        <label class="mb-15" for="id_{{ form.destination.name }}">{{ form.destination.label }}</label>
+                        <div class="choosebox-wrapper">
+                            {% render_field form.destination placeholder="تهران..." autocomplet="off" class="chooseBox" %}
+                        </div>
+                    </span>
+                </div>
+                <div class="mb-15">
+                    <span class="form-row">
+                        <label class="mb-15"
+                            for="id_{{ form.destination_region.name }}">{{ form.destination_region.label }}</label>
+                        <div class="choosebox-wrapper">
+                            <div class="choosebox-wrapper">
+                                {% render_field form.destination_region placeholder="تهران..." autocomplet="off" class="chooseBox" %}
+                            </div>
+                        </div>
+                    </span>
+                </div>
+                <div class="mb-15">
+                    <div class="form-row">
+                        <label class="mb-15" for="id_{{ form.gender.name }}">{{ form.gender.label }}</label>
+                        <div class="choosebox-wrapper">
+                            <div class="choosebox-wrapper">
+                                {% render_field form.gender class="chooseBox" %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-15">
+                    <span class="form-row">
+                        <label class="mb-15" for="id_{{ form.start_time.name }}">{{ form.start_time.label }}</label>
+                        <div class="choosebox-wrapper">
+                            <div class="choosebox-wrapper">
+                                {% render_field form.start_time class="chooseBox" %}
+                            </div>
+                        </div>
+                    </span>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-row">
+                    <label class="mr-5 mt-25 mb-15" for="id_{{ form.is_dispatcher.label }}">بار همراه خود:</label>
+                    {{ form.is_dispatcher }}
+                </div>
+                <div class="clearfix"></div>
+                <div class="choosebox-wrapper">
+                    <div class="choosebox-wrapper">
+                        {% render_field form.item_capacity placeholder="میزان بار" class="chooseBox" %}
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-8"></div>
+                <div class="col-md-4">
+                    <div class="set-bottom">
+                        <button type="submit" class="btn btn-primary btn-md btn-block mt-20">ذخیره </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script src="{% static 'assets/trip.js' %}"></script>
+
+{% endblock %}

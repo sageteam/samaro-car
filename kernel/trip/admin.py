@@ -63,8 +63,8 @@ class DistanceAdmin(admin.ModelAdmin):
 class TripAdmin(admin.ModelAdmin):
     '''Admin View for Trip'''
 
-    list_display = ('Trip', 'driver', 'status', 'gender', 'active', 'Date')
-    list_filter = ('start_time', 'status' , 'gender', 'active')
+    list_display = ('Trip', 'driver', 'status', 'gender', 'active', 'Date', 'state', 'type_creator', 'is_dispatcher')
+    list_filter = ('start_time', 'status' , 'gender', 'active', 'is_dispatcher', 'type_creator', 'state')
     raw_id_fields = ('origin', 'destination')
     search_fields = ('origin', 'destination', 'driver')
     ordering = ('status', 'active', '-created')

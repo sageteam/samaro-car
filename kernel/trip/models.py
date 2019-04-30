@@ -133,14 +133,37 @@ class Discount(models.Model):
 
 class Trip(models.Model):
     GENDERS = (
-        ('m', _('male')),
-        ('f', _('female')),
-        ('d', _('don\'t care'))
+        ('m', _('مرد')),
+        ('f', _('خانم')),
+        ('d', _('مختلط'))
+    )
+
+    CAPACITIES = (
+        (1, _('تک سرنشین')),
+        (2, _('دو سرنشین')),
+        (3, _('سه سرنشین')),
+        (4, _('چهار سرنشین')),
+    )
+
+    CREATOR_TYPES = (
+        (1, _('راننده')),
+        (2, _('مسافر'))
+    )
+
+    STATES = (
+        (1, _('صحیح')),
+        (2, _('لغو')),
     )
 
     ENDINGS = (
-        (1, _('pending')),
-        (2, _('done'))
+        (1, _('در حال اجرا')),
+        (2, _('تمام شده'))
+    )
+
+    DISCOUNTS = (
+        ('15', _('15%')),
+        ('25', _('25%')),
+        ('50', _('50%')),
     )
 
     start_time = models.DateTimeField(verbose_name=_('start time'))
@@ -148,11 +171,18 @@ class Trip(models.Model):
     destination = models.ForeignKey(City, on_delete = models.CASCADE, related_name = 'trip_dest', verbose_name=_('destination'))
     origin_region = models.ForeignKey(Region, on_delete = models.CASCADE, related_name = 'trip_reg_origin', verbose_name=_('origin region'))
     destination_region = models.ForeignKey(Region, on_delete = models.CASCADE, related_name='trip_reg_dest', verbose_name=_('destination region'))
+    type_creator = models.PositiveSmallIntegerField(choices = CREATOR_TYPES, verbose_name = _('creator type'))
     driver = models.ForeignKey(User, on_delete=models.SET_NULL, null = True, related_name='trip', verbose_name=_('driver'))
+    discount = models.CharField(choices = DISCOUNTS, max_length = 2, null = True, verbose_name = _("discount"))
+    is_dispatcher = models.BooleanField(default = False)
+    item_capacity = models.PositiveIntegerField(verbose_name = _('Item Capacity'), null = True)
     status = models.PositiveSmallIntegerField(choices = ENDINGS, verbose_name=_('status'))
     gender = models.CharField(max_length = 1, choices = GENDERS, default = 'd', verbose_name=_('gender'))
-
+    front_seat_price = models.PositiveIntegerField(verbose_name = _('front_seat_price'), null = True)
+    back_seat_price = models.PositiveIntegerField(verbose_name = _('back_seat_price'), null = True)
+    passenger_capacity = models.PositiveSmallIntegerField(choices = CAPACITIES, null = True, verbose_name = _('passenger_capacity'))
     active = models.BooleanField(default = True, verbose_name=_('active'))
+    state = models.PositiveSmallIntegerField(default = 1, choices = STATES, verbose_name= _('state'))
 
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)

@@ -1,0 +1,13 @@
+<h1>hello</h1>
+<h2>{{ self.user }}</h2>
+<form action={% url 'profile-driver' %} method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+
+    {{ basic_form.as_p}}
+    {{ general_form.as_p }}
+    {{ driver_form.as_p }}
+    {{ driver_bank_form.as_p }}
+    {{ driver_machine_form.as_p }}
+    <button type="submit">submit</button>
+</form>    
+

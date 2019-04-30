@@ -41,15 +41,18 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'django_filters',
     'widget_tweaks',
+    'jinjafilters',
     'accounts',
     'users',
     'ticket',
     'trip',
     'api_v1',
     'website',
+    'dashboard',
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
+MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -84,6 +87,7 @@ REST_FRAMEWORK = {
     # or allow read-only access for unauthenticated users.
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated'
@@ -92,6 +96,10 @@ REST_FRAMEWORK = {
         'django_filters.rest_framework.DjangoFilterBackend',
     ),
 }
+
+if not DEBUG:
+    REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = ('rest_framework.renderers.JSONRenderer',)
+    
 
 WSGI_APPLICATION = 'kernel.wsgi.application'
 
@@ -110,6 +118,11 @@ DATABASES = {
     }
 }
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'animateidea@gmail.com'
+EMAIL_HOST_PASSWORD = '^nimateide^73'
+EMAIL_USE_TLS = True
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators

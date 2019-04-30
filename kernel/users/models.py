@@ -36,6 +36,7 @@ class GeneralProfile(models.Model):
     mobile = models.CharField(max_length=11, null = True, blank = True, verbose_name = _('mobile'))
     adr = models.CharField(max_length = 256, null = True, blank = True, verbose_name = _('adr'))
     postal_code = models.CharField(max_length = 10, null = True, blank = True, verbose_name = _('postal_code'))
+    credit = models.IntegerField(default = 0, verbose_name= _('credit'))
 
     pic = models.ImageField(upload_to = 'profile/user/', null = True, blank = True, verbose_name = _('pic'))
     national_code_pic = models.ImageField(upload_to = 'profile/user/', null = True, blank = True, verbose_name = _('national_code_pic'))
@@ -48,6 +49,7 @@ class Driver(models.Model):
     job = models.CharField(max_length = 128, null = True, blank = True, verbose_name = _('job'))
     job_place = models.CharField(max_length = 128, null = True, blank = True, verbose_name = _('job_place'))
     emergency_number = models.CharField(max_length = 128, null = True, blank = True, verbose_name = _('emergency_number'))
+    score = models.PositiveIntegerField(default = 0, verbose_name = _('score'))
     profile = models.OneToOneField(GeneralProfile, on_delete = models.CASCADE, related_name='driver', verbose_name = _('profile'))
 
     def __str__(self):
@@ -56,6 +58,7 @@ class Driver(models.Model):
 class Passenger(models.Model):
     job = models.CharField(max_length = 128, null = True, blank = True, verbose_name = _('job'))
     emergency_number = models.CharField(max_length = 128, null = True, blank = True, verbose_name = _('emergency_number'))
+    score = models.PositiveIntegerField(default = 0, verbose_name = _('score'))
     profile = models.OneToOneField(GeneralProfile, on_delete = models.CASCADE, related_name='passenger', verbose_name = _('profile'))
 
     def __str__(self):
@@ -64,6 +67,7 @@ class Passenger(models.Model):
 class Transmit(models.Model):
     job = models.CharField(max_length = 128, null = True, blank = True, verbose_name = _('job'))
     emergency_number = models.CharField(max_length = 128, null = True, blank = True, verbose_name = _('emergency_number'))
+    score = models.PositiveIntegerField(default = 0, verbose_name = _('score'))
     profile = models.OneToOneField(GeneralProfile, on_delete = models.CASCADE, related_name='transmit', verbose_name = _('profile'))
     
     def __str__(self):

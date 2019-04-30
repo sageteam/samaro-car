@@ -17,8 +17,8 @@
 <div class="s-navs">
     <div class="col-md-4">
         <div class="mt-20">
-            <a class="comingSoonBtn" href="" data-toggle="modal" data-target="comingSoon">
-                <div class="panel-box xs panel-link {% if view.category == 'همسفر' %} activated {% endif %}">
+            <a href="{% url 'dashboard:passenger' %}">
+                <div class="panel-box xs panel-link {% if category == 'passenger' or view.category == 'passenger' %} activated {% endif %}">
                     <div class="center">
                         <p class="text">همسفر هستم</p>
                     </div>
@@ -32,7 +32,7 @@
     <div class="col-md-4">
         <div class="mt-20">
             <a class="comingSoonBtn" href="" data-toggle="modal" data-target="comingSoon">
-                <div class="panel-box xs panel-link {% if view.category == 'transmit' %} activated {% endif %}">
+                <div class="panel-box xs panel-link {% if category == 'transmit' or view.category == 'transmit' %} activated {% endif %}">
                     <div class="center">
                         <p class="text">صاحب مرسوله هستم</p>
                     </div>
@@ -45,8 +45,8 @@
 
     <div class="col-md-4">
         <div class="mt-20">
-            <a class="comingSoonBtn" href="" data-toggle="modal" data-target="comingSoon">
-                <div class="panel-box xs panel-link {% if view.category == 'همسفر' %} activated {% endif %}">
+            <a href="{% url 'dashboard:driver' %}">
+                <div class="panel-box xs panel-link {% if category == 'driver' or view.category == 'driver' %} activated {% endif %}">
                     <div class="center">
                         <p class="text">راننده هستم</p>
                     </div>

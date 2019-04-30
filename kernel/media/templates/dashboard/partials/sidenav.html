@@ -9,7 +9,7 @@
         <div class="profile-pic mt-20 mb-50">
             <img class="img-responsive" src="{% static 'assets/img/profile/sepehr-akbarzadeh.jpg' %}" alt="">
         </div>
-        <h3 class="text-center name">سپهر اکبرزاده</h3>
+        <h3 class="text-center name">{{ user.first_name }} {{ user.last_name }}</h3>
         <div class="underline mt-30"></div>
         <div class="score mt-20">
             <div class="col-md-6">
@@ -43,7 +43,7 @@
             </a>
         </li>
         <li class="item">
-            <a class="{% if view.title == 'تنظیمات' %}active{% endif %}" href="{% url 'dashboard:settings' %}">
+            <a class="{% if view.title == 'تنظیمات' %}active{% endif %}" href="#">
                 <span class="text">تنظیمات</span>
                 <img class="icon primary ml-10" src="{% static 'assets/img/dashboard/icons/nav/blue-setting.svg' %}"
                     alt="" />
@@ -52,7 +52,7 @@
             </a>
         </li>
         <li class="item">
-            <a class="{% if view.title == 'تغییر رمز عبور' %}active{% endif %}" href="{% url 'dashboard:reset_password' %}">
+            <a class="{% if view.title == 'تغییر رمز عبور' %}active{% endif %}" href="#">
                 <span class="text">تغییر رمز عبور</span>
                 <img class="icon primary ml-10" src="{% static 'assets/img/dashboard/icons/nav/blue-lock.svg' %}" alt="" />
                 <img class="icon secondary ml-10" src="{% static 'assets/img/dashboard/icons/nav/white-lock.svg' %}"
