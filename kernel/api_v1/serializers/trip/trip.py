@@ -32,5 +32,5 @@ class TripMainSerializer(ModelSerializer):
     
     class Meta:
         model = Trip
-        fields = ('pk', 'origin', 'origin_region', 'destination', 'destination_region', 'driver', 'seat', 'status', 'gender', 'active', 'start_time', 'type_creator', 'front_seat_price', 'back_seat_price')
+        fields = ('pk', 'origin', 'origin_region', 'destination', 'destination_region', 'driver', 'status', 'gender', 'active', 'start_time', 'type_creator', 'front_seat_price', 'back_seat_price')
 
