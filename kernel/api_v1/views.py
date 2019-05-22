@@ -408,6 +408,13 @@ class APISeatsATrip(APIView):
             return Trip.objects.get(pk = trip)
         except Trip.DoesNotExist:
             raise NotFound
+    
+    def post(self, request, format = None, *args, **kwargs):
+        serializer = SeatSerializer(data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status = status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
 class APISeatsATripUpdate(APIView):
     permission_class = (NormalPermission, )
