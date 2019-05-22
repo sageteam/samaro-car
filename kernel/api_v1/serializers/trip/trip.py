@@ -12,7 +12,7 @@ class SeatSerializer(ModelSerializer):
     class Meta:
         model = Seat
         fields = ('id', 'position', 'state', 'init_price', 'paid_price', 'type_price', 'discount', 'user', 'trip')
-        read_only_fields = ('trip', 'position')
+        # read_only_fields = ('trip', 'position')
 
 class TripSerializer(ModelSerializer):
     origin = CitySerializer(required = True)
