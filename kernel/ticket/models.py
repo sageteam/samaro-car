@@ -53,6 +53,9 @@ class TicketLetter(models.Model):
         verbose_name = _('Ticket')
         verbose_name_plural = _('Tickets')
         ordering = ['-created']
+    
+    def __str__(self):
+        return "{self.sku} - {self.user}".format(self.message)
 
 
 class Department(models.Model):
@@ -64,3 +67,7 @@ class Department(models.Model):
     class Meta:
         verbose_name = _('Department')
         verbose_name_plural = _('Departments')
+    
+    def __str__(self):
+        return self.title
+    

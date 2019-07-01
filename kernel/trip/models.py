@@ -193,3 +193,8 @@ class Trip(models.Model):
         verbose_name = _('trip')
         verbose_name_plural = _('trips')
         ordering = ('status', '-start_time',)
+
+    
+    def __str__(self):
+        return "{self.driver} is {self.active} and {self.state}".format()
+    
