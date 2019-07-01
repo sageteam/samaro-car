@@ -55,7 +55,7 @@ class TicketLetter(models.Model):
         ordering = ['-created']
     
     def __str__(self):
-        return "{self.sku} - {self.user}".format(self.message)
+        return "{} - {}".format(self.sku, self.user)
 
 
 class Department(models.Model):

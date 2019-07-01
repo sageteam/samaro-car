@@ -196,5 +196,5 @@ class Trip(models.Model):
 
     
     def __str__(self):
-        return "{self.driver} is {self.active} and {self.state}".format()
+        return "{} is {} and {}".format(self.driver, self.active, self.state)
     
