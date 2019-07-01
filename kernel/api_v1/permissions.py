@@ -9,6 +9,7 @@ logger = logging.getLogger(__name__)
 class RegisterPermission(BasePermission):
     def has_permission(self, request, view):
         return True
+
 class NoPermission(BasePermission):
     def has_permission(self, request, view):
         return True

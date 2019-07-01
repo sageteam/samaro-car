@@ -40,7 +40,7 @@ class DriverTripCreateView(LoginRequiredMixin, View):
                 price = int(data['front_seat_price'])
                 if price == 0:
                     cap = int(data['passenger_capacity'])
-                    import pdb; pdb.set_trace()
+                    # import pdb; pdb.set_trace()
                     driver_id = self.request.user.profile.driver.pk
                     trip = Trip.objects.filter(driver = driver_id).filter(active = True).filter(status = 1)[0]
                     pos = 2
@@ -158,11 +158,9 @@ class PassengerTripListView(LoginRequiredMixin, ListView):
     
     def get_queryset(self):
         return Trip.objects.get_trips(1)
-    
+
     def get_context_data(self, *args, **kwargs):
         qs = super(PassengerTripListView, self).get_queryset(*args, **kwargs)
-        import pdb; pdb.set_trace()
         context = super(PassengerTripListView, self).get_context_data(**kwargs)
-        # context['across'] = 
 
         return context

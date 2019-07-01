@@ -25,7 +25,6 @@ class FAQ(models.Model):
         """Unicode representation of FAQ."""
         return self.title
 
-
 class FAQCategory(models.Model):
     """Model definition for FAQCategory."""
     sku = models.CharField(max_length = 32, unique = True, blank = True, null = False)

@@ -95,7 +95,7 @@ class SignInView(FormView):
 
         if user is not None:
             login(request, user)
-            return redirect('site:home')
+            return redirect('samaro:home')
         else:
             messages.warning(self.request, _('username or password is wrong.'))
             return redirect('signin')

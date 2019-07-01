@@ -44,6 +44,11 @@ from users.models import Feature
 from users.models import Notifications
 from users.models import Bank
 
+from dashboard.models import Rules
+from dashboard.models import RulesCategory
+from dashboard.models import FAQ
+from dashboard.models import FAQCategory
+
 from ticket.models import TicketEnvelope
 from ticket.models import TicketLetter
 
@@ -63,6 +68,11 @@ from api_v1.serializers.users import UserRegisterSerializer
 from api_v1.serializers.users import TicketSerializer 
 from api_v1.serializers.users import TicketLetterSerializer
 
+from api_v1.serializers.dashboard.faq import FAQSerializer
+from api_v1.serializers.dashboard.faq import FAQCategorySerializer
+from api_v1.serializers.dashboard.rules import RulesSerializer
+from api_v1.serializers.dashboard.rules import RulesCategorySerializer
+
 from .permissions import NoPermission
 from .permissions import NormalPermission
 from .permissions import RegisterPermission
@@ -70,6 +80,19 @@ from .permissions import UserPermission
 from .permissions import UserMachinePermission
 from .permissions import UserNestedProfilePermission
 from .permissions import UserProfilePermission
+
+######## Ticket ########
+class TicketViewSet(viewsets.ModelViewSet):
+    queryset = TicketEnvelope.objects.all()
+    serializer_class = TicketSerializer
+    lookup_field = 'sku'
+    lookup_url_field = 'sku'
+
+class TicketLetterViewSet(viewsets.ModelViewSet):
+    queryset = TicketLetter.objects.all()
+    serializer_class = TicketLetterSerializer
+    lookup_field = 'sku'
+    lookup_url_field = 'sku'
 
 ######## City ########
 class CityViewSet(viewsets.ModelViewSet):
@@ -99,6 +122,32 @@ class DistanceViewSet(viewsets.ModelViewSet):
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_fields = ('city1', 'city2', 'road')
 
+######## Dashboard ########
+class RulesViewSet(viewsets.ModelViewSet):
+    queryset = Rules.objects.all()
+    serializer_class = RulesSerializer
+    lookup_field = 'id'
+    lookup_url_kwarg = 'id'
+
+class RulesCategoryViewSet(viewsets.ModelViewSet):
+    queryset = RulesCategory.objects.all()
+    serializer_class = RulesCategorySerializer
+    lookup_field = 'id'
+    lookup_url_kwarg = 'id'
+
+class FAQViewSet(viewsets.ModelViewSet):
+    queryset = FAQ.objects.all()
+    serializer_class = FAQSerializer
+    lookup_field = 'id'
+    lookup_url_kwarg = 'id'
+
+class FAQCategoryViewSet(viewsets.ModelViewSet):
+    queryset = FAQCategory.objects.all()
+    serializer_class = FAQCategorySerializer
+    lookup_field = 'id'
+    lookup_url_kwarg = 'id'
+
+
 ######################
 ######## USER ########
 ######################
@@ -106,7 +155,7 @@ class DistanceViewSet(viewsets.ModelViewSet):
 class APIDetailUser(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = (UserPermission,)
+    # permission_classes = (UserPermission,)
     lookup_field = 'email'
     lookup_url_kwarg = 'email'
 
@@ -445,62 +494,62 @@ class APISeatsATripUpdate(APIView):
         except Trip.DoesNotExist:
             raise NotFound
 
-class APIDriverTripTickets(APIView):
-    def get(self, request, format = None, *args, **kwargs):
-        tickets = TicketEnvelope.objects.filter(trip = kwargs['trip'])
-        serializer = TicketSerializer(tickets, many = True)
-        return Response(serializer.data)
+# class APIDriverTripTickets(APIView):
+#     def get(self, request, format = None, *args, **kwargs):
+#         tickets = TicketEnvelope.objects.filter(trip = kwargs['trip'])
+#         serializer = TicketSerializer(tickets, many = True)
+#         return Response(serializer.data)
     
-    def post(self, request, format = None, *args, **kwargs):
-        serializer = TicketSerializer(data = request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status = status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#     def post(self, request, format = None, *args, **kwargs):
+#         serializer = TicketSerializer(data = request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status = status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class APIDriverTripTicketUpdate(APIView):
+# class APIDriverTripTicketUpdate(APIView):
 
-    def get(self, request, format = None, *args, **kwargs):
-        ticket = self.get_object(kwargs['ticket_sku'], kwargs['trip'])
+#     def get(self, request, format = None, *args, **kwargs):
+#         ticket = self.get_object(kwargs['ticket_sku'], kwargs['trip'])
 
-        if ticket:
-            serializer = TicketSerializer(ticket)
-            return Response(serializer.data)
-        else:
-            raise NotFound('Envelope Not Found')
+#         if ticket:
+#             serializer = TicketSerializer(ticket)
+#             return Response(serializer.data)
+#         else:
+#             raise NotFound('Envelope Not Found')
         
-    def put(self, request, format = None, *args, **kwargs):
-        ticket = self.get_object(kwargs['ticket_sku'], kwargs['trip'])
-        serializer = TicketSerializer(ticket, data = request.data)
+#     def put(self, request, format = None, *args, **kwargs):
+#         ticket = self.get_object(kwargs['ticket_sku'], kwargs['trip'])
+#         serializer = TicketSerializer(ticket, data = request.data)
 
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data)
             
-        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
+#         return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
     
-    def get_object(self, sku, trip):
-        tickets = TicketEnvelope.objects.filter(trip = trip)
-        envelope = None
+#     def get_object(self, sku, trip):
+#         tickets = TicketEnvelope.objects.filter(trip = trip)
+#         envelope = None
         
-        for ticket in tickets:
-            if ticket.sku == sku:
-                return ticket
+#         for ticket in tickets:
+#             if ticket.sku == sku:
+#                 return ticket
         
-class APITicketMessages(APIView):
+# class APITicketMessages(APIView):
 
-    def get(self, request, format = None, *args, **kwargs):
-        ticket = TicketEnvelope.objects.filter(trip = kwargs['trip']).filter(sku = kwargs['ticket_sku'])[0]
-        messages = ticket.messages.all()
+#     def get(self, request, format = None, *args, **kwargs):
+#         ticket = TicketEnvelope.objects.filter(trip = kwargs['trip']).filter(sku = kwargs['ticket_sku'])[0]
+#         messages = ticket.messages.all()
 
-        # messages = TicketLetter.objects.all()
-        serializer = TicketLetterSerializer(messages, many = True)
-        return Response(serializer.data)
+#         # messages = TicketLetter.objects.all()
+#         serializer = TicketLetterSerializer(messages, many = True)
+#         return Response(serializer.data)
     
-    def post(self, request, format = None, *args, **kwargs):
-        serializer = TicketLetterSerializer(data = request.data)
+#     def post(self, request, format = None, *args, **kwargs):
+#         serializer = TicketLetterSerializer(data = request.data)
 
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status = status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status = status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

@@ -17,7 +17,7 @@ class PreRegister(CreateView):
     template_name = "others/pre-register.html"
     model = PreRegisterDriver
     form_class = PreRegisterDriverForm
-    success_url = reverse_lazy('site:success')
+    success_url = reverse_lazy('samaro:success')
     title = 'پیش ثبت نام'
 
 

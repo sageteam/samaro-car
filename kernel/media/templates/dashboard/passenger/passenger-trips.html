@@ -244,8 +244,9 @@
                                 <div class="profile mr-15">
                                     <div class="col-md-12 hidden-sm hidden-xs">
                                         <div class="profile-pic">
+                                            {{ trip.driver.profile.pic }}
                                             <img class="img-responsive"
-                                                src="{% static 'assets/img/profile/sepehr-akbarzadeh.jpg' %}"
+                                                src="/static/upload/{{ trip.driver.profile.pic }}"
                                                 alt="{{ trip.driver.user.first_name }} {{ trip.driver.user.last_name }}" />
                                         </div>
                                     </div>
@@ -295,22 +296,24 @@
                                         <div class="route-line"></div>
                                         <div class="route">
                                             <ul class="list-unstyled list-inline">
-                                                <li class="origin">{{ trip.origin }}</li>
+                                                <li class="origin" data={{ trip.origin.pk }}>{{ trip.origin }}</li>
                                                 <li class="between">
                                                     <span class="form-row">
                                                         <div class="choosebox-wrapper">
-                                                            <input style="width: 60%;" class="chooseBox mt-5"
-                                                                id="route_between" type="text" autocomplete="off" />
-                                                            <div id="route_between" class="choosebox-content">
-                                                                <a class="chb-opt" href="#tehran">مرزن
-                                                                    آباد</a>
-                                                                <a class="chb-opt" href="#nowshahr">کجور</a>
-                                                                <a class="chb-opt" href="#chalus">بلوار</a>
+                                                            <div class="choosebox-wrapper">
+                                                                <div class="choosebox-wrapper">
+                                                                    <select name="across" placeholder="بین راهی"
+                                                                        class="chooseBox"
+                                                                        id="across_{{ forloop.counter }}">
+                                                                        <option value="0">-----------</option>
+                                                                    </select>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </span>
                                                 </li>
-                                                <li class="destination">{{ trip.destination }}</li>
+                                                <li class="destination" data={{ trip.destination.pk }}>
+                                                    {{ trip.destination }}</li>
                                             </ul>
                                             <ul class="list-unstyled list-inline">
                                                 <li class="origin-region">{{ trip.origin_region.name }}</li>
@@ -327,26 +330,26 @@
                                 <div class="passenger">
                                     <ul class="list-inline list-unstyled">
                                         {% for seat in trip.seat.all reversed %}
-                                            {% if seat.user.profile.gender == 'm' %}
-                                                {% if seat.position == 1 %}
-                                                    <li style="border:1px solid #29b6f6;"><img class="img-responsive"
-                                                        src="" alt=""></li>
-                                                {% else %}
-                                                    <li><img class="img-responsive"
-                                                        src="{% static 'assets/img/icons/icon-human-yellow.svg' %}" alt=""></li>
-                                                {% endif %}
-                                            {% elif seat.user.profile.gender == 'f' %}
-                                                <li><img class="img-responsive"
-                                                    src="{% static 'assets/img/icons/icon-human-woman-yellow.svg' %}"
-                                                    alt=""></li>
-                                            {% else %}
-                                                {% if seat.position == 1%}
-                                                    <li style="border:1px solid #29b6f6;"><img class="img-responsive"
-                                                        src="" alt=""></li>
-                                                {% else %}
-                                                    <li><img class="img-responsive" src="" alt=""></li>
-                                                {% endif %}
-                                            {% endif %}
+                                        {% if seat.user.profile.gender == 'm' %}
+                                        {% if seat.position == 1 %}
+                                        <li style="border:1px solid #29b6f6;"><img class="img-responsive" src="" alt="">
+                                        </li>
+                                        {% else %}
+                                        <li><img class="img-responsive"
+                                                src="{% static 'assets/img/icons/icon-human-yellow.svg' %}" alt=""></li>
+                                        {% endif %}
+                                        {% elif seat.user.profile.gender == 'f' %}
+                                        <li><img class="img-responsive"
+                                                src="{% static 'assets/img/icons/icon-human-woman-yellow.svg' %}"
+                                                alt=""></li>
+                                        {% else %}
+                                        {% if seat.position == 1%}
+                                        <li style="border:1px solid #29b6f6;"><img class="img-responsive" src="" alt="">
+                                        </li>
+                                        {% else %}
+                                        <li><img class="img-responsive" src="" alt=""></li>
+                                        {% endif %}
+                                        {% endif %}
                                         {% endfor %}
                                     </ul>
                                 </div>
@@ -387,7 +390,8 @@
                                                 src="{% static 'assets/img/icons/icon-briefcase.svg' %}" alt=""></li>
                                         {% endif %}
                                     </ul>
-                                    <a class="btn btn-info btn-block btn-lg reservationBtn" href="" data-toggle="modal" data-target="reservation">رزرو</a>
+                                    <a class="btn btn-info btn-block btn-lg reservationBtn" href="" data-toggle="modal"
+                                        data-target="reservation">رزرو</a>
                                 </div>
                             </div>
                         </div>
@@ -441,8 +445,57 @@
 {% block scripts %}
 <script>
     $(".reservationBtn").click(function () {
-    $('#reservation').modal('show')
-});
+        $('#reservation').modal('show')
+    });
 </script>
+
+<script>
+    $(document).ready(function () {
+        $('[name=across]').click(function () {
+
+            elem_id = $(this).attr('id')
+
+            origin = $(this).parentsUntil('li.between').parent().prev().attr('data');
+            destination = $(this).parentsUntil('li.between').parent().next().attr('data');
+            if ($(this).children('option').length == 1) {
+                $.ajax({
+                    url: '/api/v1/distance/?city1=' + origin + '&city2=' + destination,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+
+                        if (data[0]) {
+                            // console('data is ready to fill')
+                        } else {
+                            $.ajax({
+                                url: '/api/v1/distance/?city1=' + destination +
+                                    '&city2=' + origin,
+                                type: 'GET',
+                                dataType: 'json',
+                                success: function (data) {
+                                    // console.clear();
+                                    $.each(data, function (index, obj) {
+                                        $.each(obj.across, function (
+                                            index, city) {
+                                            $('#' + elem_id)
+                                                .append(
+                                                    '<option value="' +
+                                                    city +
+                                                    '">' +
+                                                    city +
+                                                    '</option>'
+                                                    );
+                                        });
+                                    });
+                                },
+                            });
+                        }
+                    },
+                });
+            }
+        });
+    });
+</script>
+
 
 {% endblock %}
